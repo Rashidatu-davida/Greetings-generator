@@ -10,6 +10,7 @@ const resultImage = document.getElementById("resultImage");
 const heartIcon = document.getElementById("heartIcon");
 const wishText = document.getElementById("wishText");
 
+updateTheme();
 const themes = [
     {
         key: "birthday",
@@ -46,6 +47,33 @@ const themes = [
 ];
 
 let currentThemeIndex = 0;
+
+const themeTitle = document.getElementById("themeTitle");
+
+function updateTheme() {
+    const theme = themes[currentThemeIndex];
+
+    themeTitle.textContent = theme.title;
+
+    document.body.className = "";
+    document.body.classList.add(`theme-${theme.key}`);
+}
+
+document.getElementById("nextTheme").addEventListener("click", () => {
+    currentThemeIndex =
+        (currentThemeIndex + 1) % themes.length;
+
+    updateTheme();
+});
+
+document.getElementById("prevTheme").addEventListener("click", () => {
+    currentThemeIndex =
+        (currentThemeIndex - 1 + themes.length) % themes.length;
+
+    updateTheme();
+});
+
+updateTheme();
 
 const birthdayWishes = [
     "Happy Birthday! Wishing you joy, laughter, and success this year.",
