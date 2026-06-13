@@ -4,12 +4,58 @@
     box-sizing:border-box;
 }
 
+
 body{
     font-family:'Outfit',sans-serif;
     background:linear-gradient(180deg,#25003f 0%,#08001f 100%);
     min-height:100vh;
     color:#fff;
     overflow-x:hidden;
+}
+
+:root{
+    --bg1:#25003f;
+    --bg2:#08001f;
+}
+
+.theme-birthday{
+    --bg1:#25003f;
+    --bg2:#08001f;
+}
+
+.theme-christmas{
+    --bg1:#3a0000;
+    --bg2:#10200d;
+}
+
+.theme-mothers{
+    --bg1:#472440;
+    --bg2:#2c1731;
+}
+
+.theme-fathers{
+    --bg1:#14212c;
+    --bg2:#08131b;
+}
+
+.theme-eid{
+    --bg1:#0a2614;
+    --bg2:#03140a;
+}
+
+.theme-easter{
+    --bg1:#4b355d;
+    --bg2:#2b1f44;
+}
+
+.theme-newyear{
+    --bg1:#0d1b4f;
+    --bg2:#040916;
+}
+
+.theme-holidays{
+    --bg1:#27354f;
+    --bg2:#101928;
 }
 
 .screen{
