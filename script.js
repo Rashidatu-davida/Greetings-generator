@@ -11,7 +11,7 @@ const THEMES = [
     subtitle: "Create a heartfelt message your birthday star will treasure.",
     namePlaceholder: "Who's the birthday star? ✨",
     generateLabel: "Generate Wish",
-    revealGreeting: (n) => Happy Birthday, ${n}!,
+    revealGreeting: (n) => `Happy Birthday, ${n}!`,
     tagBadge: "Birthday Message",
     cardEmoji: "🎂",
     bg: "radial-gradient(ellipse at 20% 20%, #3b0764 0%, #1a0533 40%, #0f0a2e 70%, #0d1117 100%)",
@@ -51,7 +51,7 @@ const THEMES = [
     subtitle: "Send warm seasonal wishes to someone on your nice list.",
     namePlaceholder: "Who's on the nice list? 🎅",
     generateLabel: "Generate Greeting",
-    revealGreeting: (n) => Merry Christmas, ${n}!,
+    revealGreeting: (n) => `Merry Christmas, ${n}!`,
     tagBadge: "Christmas Message",
     cardEmoji: "🎄",
     bg: "radial-gradient(ellipse at 20% 15%, #1a0a0a 0%, #0a1f0a 40%, #071507 65%, #050d05 100%)",
@@ -88,7 +88,7 @@ const THEMES = [
     subtitle: "Share joyful Easter blessings with someone you love.",
     namePlaceholder: "Who are you blessing? 🌸",
     generateLabel: "Generate Greeting",
-    revealGreeting: (n) => Happy Easter, ${n}!,
+    revealGreeting: (n) => `Happy Easter, ${n}!`,
     tagBadge: "Easter Message",
     cardEmoji: "🐣",
     bg: "radial-gradient(ellipse at 30% 20%, #2d0a3a 0%, #1a0a2e 40%, #0f0a1a 65%, #080810 100%)",
@@ -124,7 +124,7 @@ const THEMES = [
     subtitle: "Tell Mum how much she means in a few beautiful words.",
     namePlaceholder: "Her beautiful name… 💐",
     generateLabel: "Generate Message",
-    revealGreeting: (n) => Happy Mother's Day, ${n}!,
+    revealGreeting: (n) => `Happy Mother's Day, ${n}!`,
     tagBadge: "Mother's Day Message",
     cardEmoji: "💐",
     bg: "radial-gradient(ellipse at 25% 20%, #3a0a1e 0%, #1f0a14 40%, #120609 65%, #0a0408 100%)",
@@ -161,7 +161,7 @@ const THEMES = [
     subtitle: "Honour Dad with words that truly capture how much he means.",
     namePlaceholder: "His great name… 👔",
     generateLabel: "Generate Message",
-    revealGreeting: (n) => Happy Father's Day, ${n}!,
+    revealGreeting: (n) => `Happy Father's Day, ${n}!`,
     tagBadge: "Father's Day Message",
     cardEmoji: "👔",
     bg: "radial-gradient(ellipse at 20% 20%, #050e1f 0%, #0a1628 40%, #060d1a 65%, #040810 100%)",
@@ -198,7 +198,7 @@ const THEMES = [
     subtitle: "Send warm Eid blessings to someone you care about.",
     namePlaceholder: "Their name… ☪️",
     generateLabel: "Send Eid Greetings",
-    revealGreeting: (n) => Eid Mubarak, ${n}!,
+    revealGreeting: (n) => `Eid Mubarak, ${n}!`,
     tagBadge: "Eid Mubarak Message",
     cardEmoji: "🌙",
     bg: "radial-gradient(ellipse at 20% 20%, #021a0c 0%, #071a0f 40%, #040d08 65%, #020807 100%)",
@@ -235,7 +235,7 @@ const THEMES = [
     subtitle: "Start the new year right with a heartfelt wish for someone you love.",
     namePlaceholder: "Who's stepping into the new year? 🥂",
     generateLabel: "Generate Wish",
-    revealGreeting: (n) => Happy New Year, ${n}!,
+    revealGreeting: (n) => `Happy New Year, ${n}!`,
     tagBadge: "New Year Message",
     cardEmoji: "🥂",
     bg: "radial-gradient(ellipse at 20% 15%, #0a0520 0%, #050310 40%, #000510 65%, #000208 100%)",
@@ -272,7 +272,7 @@ const THEMES = [
     subtitle: "Spread warmth and joy with a personalised holiday greeting.",
     namePlaceholder: "Someone special's name… 🎁",
     generateLabel: "Generate Greeting",
-    revealGreeting: (n) => Happy Holidays, ${n}!,
+    revealGreeting: (n) => `Happy Holidays, ${n}!`,
     tagBadge: "Holiday Message",
     cardEmoji: "🎁",
     bg: "radial-gradient(ellipse at 25% 20%, #1a0a05 0%, #0f1020 40%, #0a0d1a 65%, #060810 100%)",
@@ -371,9 +371,9 @@ function renderFloatingElements(containerId, theme, intense) {
     el.style.top = b.cy;
     el.style.width = b.r;
     el.style.height = b.r;
-    el.style.background = radial-gradient(circle, ${color}, transparent 70%);
-    el.style.animationDuration = ${5 + b.idx * 0.7}s;
-    el.style.animationDelay = ${-(b.idx * 0.5)}s;
+    el.style.background = `radial-gradient(circle, ${color}, transparent 70%)`;
+    el.style.animationDuration = `${5 + b.idx * 0.7}s`;
+    el.style.animationDelay = `${-(b.idx * 0.5)}s`;
     container.appendChild(el);
   });
 
@@ -383,8 +383,8 @@ function renderFloatingElements(containerId, theme, intense) {
     el.className = "float-sparkle";
     el.style.left = s.x;
     el.style.top = s.y;
-    el.style.animationDuration = ${s.dur}s;
-    el.style.animationDelay = ${-s.delay}s;
+    el.style.animationDuration = `${s.dur}s`;
+    el.style.animationDelay = `${-s.delay}s`;
     el.innerHTML = sparkleSVG(s.size, theme.sparkleColor);
     container.appendChild(el);
   });
@@ -396,12 +396,12 @@ function renderFloatingElements(containerId, theme, intense) {
     el.className = "float-dot" + (intense ? " intense" : "");
     el.style.left = d.x;
     el.style.top = d.y;
-    el.style.width = ${d.size}px;
-    el.style.height = ${d.size}px;
+    el.style.width = `${d.size}px`;
+    el.style.height = `${d.size}px`;
     el.style.background = color;
-    el.style.boxShadow = 0 0 ${d.size * 2}px ${color};
-    el.style.animationDuration = ${3 + d.delay}s;
-    el.style.animationDelay = ${-d.delay}s;
+    el.style.boxShadow = `0 0 ${d.size * 2}px ${color}`;
+    el.style.animationDuration = `${3 + d.delay}s`;
+    el.style.animationDelay = `${-d.delay}s`;
     container.appendChild(el);
   });
 
@@ -439,7 +439,7 @@ function renderCarouselDots(activeIndex, theme) {
   THEMES.forEach((t, i) => {
     const dot = document.createElement("button");
     dot.className = "carousel-dot" + (i === activeIndex ? " active" : "");
-    dot.setAttribute("aria-label", ${t.label} theme);
+    dot.setAttribute("aria-label", `${t.label} theme`);
     dot.setAttribute("role", "tab");
     dot.setAttribute("aria-selected", String(i === activeIndex));
     if (i === activeIndex) dot.style.background = theme.primaryColor;
@@ -491,7 +491,7 @@ function fireSmallConfetti(theme) {
    ============================================================ */
 function applyTheme(theme) {
   // Page title + localStorage
-  document.title = ${theme.label} Wish Generator;
+  document.title = `${theme.label} Wish Generator`;
   try { localStorage.setItem("lastTheme", String(state.themeIndex)); } catch (_) {}
 
   // Carousel dots
@@ -504,7 +504,7 @@ function applyTheme(theme) {
   // Carousel buttons
   ["prev-btn", "next-btn"].forEach((id) => {
     const btn = document.getElementById(id);
-    btn.style.borderColor = ${theme.primaryColor}40;
+    btn.style.borderColor = `${theme.primaryColor}40`;
     btn.style.color = theme.primaryColor;
   });
 
@@ -524,10 +524,10 @@ function applyTheme(theme) {
   refreshGenerateBtn(nameInput.value, theme);
 
   // Drop zone icon color
-  document.getElementById("dz-icon-wrap").style.background = ${theme.primaryColor}22;
+  document.getElementById("dz-icon-wrap").style.background = `${theme.primaryColor}22`;
   document.getElementById("dz-camera-icon").style.color = theme.primaryColor;
   document.getElementById("preview-uploaded").style.color = theme.primaryColor;
-  document.getElementById("preview-img").style.borderColor = ${theme.primaryColor}80;
+  document.getElementById("preview-img").style.borderColor = `${theme.primaryColor}80`;
 
   // Glass card backgrounds
   document.querySelectorAll(".glass-card").forEach((card) => {
@@ -545,11 +545,11 @@ function applyTheme(theme) {
 function applyRevealTheme(theme) {
   // Avatar glow
   document.getElementById("avatar-glow").style.background =
-    radial-gradient(circle, ${theme.primaryGlow}, transparent 70%);
+    `radial-gradient(circle, ${theme.primaryGlow}, transparent 70%)`;
 
   // Spinning ring gradient
   document.getElementById("avatar-ring").style.background =
-    conic-gradient(from 0deg, ${theme.primaryColor}, ${theme.secondaryColor}, ${theme.goldColor}, ${theme.primaryColor});
+    `conic-gradient(from 0deg, ${theme.primaryColor}, ${theme.secondaryColor}, ${theme.goldColor}, ${theme.primaryColor})`;
 
   // Avatar circle (fallback bg when no photo)
   if (!state.photo) {
@@ -558,22 +558,22 @@ function applyRevealTheme(theme) {
 
   // Emoji badge
   const badge = document.getElementById("emoji-badge");
-  badge.style.background = linear-gradient(135deg, ${theme.goldColor}, ${theme.primaryColor});
+  badge.style.background = `linear-gradient(135deg, ${theme.goldColor}, ${theme.primaryColor})`;
   badge.textContent = theme.cardEmoji;
 
   // Greeting heading gradient
   document.getElementById("greeting-heading").style.backgroundImage = theme.headingGradient;
 
   // Greeting sub emoji
-  document.getElementById("greeting-sub").textContent = ${theme.emoji} Sending warm wishes to;
+  document.getElementById("greeting-sub").textContent = `${theme.emoji} Sending warm wishes to`;
 
   // Card accent line
   document.getElementById("card-accent-line").style.background = theme.topAccentLine;
 
   // Card emoji box
   const emojiBox = document.getElementById("card-emoji-box");
-  emojiBox.style.background = ${theme.primaryColor}22;
-  emojiBox.style.borderColor = ${theme.primaryColor}44;
+  emojiBox.style.background = `${theme.primaryColor}22`;
+  emojiBox.style.borderColor = `${theme.primaryColor}44`;
   emojiBox.textContent = theme.cardEmoji;
 
   // Card badge text
@@ -585,7 +585,7 @@ function applyRevealTheme(theme) {
   document.getElementById("card-heart-icon").style.color = theme.secondaryColor;
 
   // Card credit
-  document.getElementById("card-credit").textContent = Made with love · ${theme.label} Wish Generator;
+  document.getElementById("card-credit").textContent = `Made with love · ${theme.label} Wish Generator`;
 
   // Primary action button
   const newWishBtn = document.getElementById("new-wish-btn");
@@ -604,8 +604,8 @@ function updateCarouselLabel(theme) {
     document.getElementById("carousel-emoji").textContent = theme.emoji;
     document.getElementById("carousel-text").textContent = theme.carouselLabel;
     document.getElementById("carousel-text").style.color = theme.primaryColor;
-    label.style.background = ${theme.primaryColor}1a;
-    label.style.borderColor = ${theme.primaryColor}4d;
+    label.style.background = `${theme.primaryColor}1a`;
+    label.style.borderColor = `${theme.primaryColor}4d`;
     // Fade in
     label.classList.remove("fade-out");
     label.classList.add("fade-in");
@@ -641,9 +641,9 @@ function updateHeading(theme) {
 function refreshInputBorder(input, theme) {
   const hasValue = input.value.length > 0;
   input.style.border = hasValue
-    ? 1.5px solid ${theme.primaryColor}99
+    ? `1.5px solid ${theme.primaryColor}99`
     : "1.5px solid rgba(255,255,255,0.12)";
-  input.style.boxShadow = hasValue ? 0 0 0 4px ${theme.primaryColor}22 : "none";
+  input.style.boxShadow = hasValue ? `0 0 0 4px ${theme.primaryColor}22` : "none";
 }
 
 /* ============================================================
@@ -678,7 +678,7 @@ function handleFile(file) {
     const theme = THEMES[state.themeIndex];
     const img = document.getElementById("preview-img");
     img.src = state.photo;
-    img.style.borderColor = ${theme.primaryColor}80;
+    img.style.borderColor = `${theme.primaryColor}80`;
     document.getElementById("dz-empty").style.display = "none";
     document.getElementById("dz-preview").style.display = "flex";
   };
@@ -734,9 +734,9 @@ function transitionTo(newScreenId, setupFn) {
   const enterX = newScreenId === "reveal-screen" ? "24px" : "-24px";
 
   // Animate current screen out
-  currentEl.style.transition = opacity ${DUR}ms ${EASE}, transform ${DUR}ms ${EASE};
+  currentEl.style.transition = `opacity ${DUR}ms ${EASE}, transform ${DUR}ms ${EASE}`;
   currentEl.style.opacity = "0";
-  currentEl.style.transform = translateX(${exitX});
+  currentEl.style.transform = `translateX(${exitX})`;
 
   setTimeout(() => {
     // Hide old screen
@@ -752,11 +752,11 @@ function transitionTo(newScreenId, setupFn) {
     newEl.style.display = "flex";
     newEl.style.transition = "none";
     newEl.style.opacity = "0";
-    newEl.style.transform = translateX(${enterX});
+    newEl.style.transform = `translateX(${enterX})`;
     newEl.offsetHeight; // force reflow so transition fires
 
     // Animate new screen in
-    newEl.style.transition = opacity ${DUR}ms ${EASE}, transform ${DUR}ms ${EASE};
+    newEl.style.transition = `opacity ${DUR}ms ${EASE}, transform ${DUR}ms ${EASE}`;
     newEl.style.opacity = "1";
     newEl.style.transform = "translateX(0)";
 
@@ -791,7 +791,7 @@ function showReveal(name, photo, wish) {
 
     if (photo) {
       avatarImg.src = photo;
-      avatarImg.alt = ${name}'s photo;
+      avatarImg.alt = `${name}'s photo`;
       avatarImg.style.display = "block";
       avatarHeart.style.display = "none";
       avatarCircle.style.background = "transparent";
@@ -861,8 +861,8 @@ async function handleShare() {
   const theme = THEMES[state.themeIndex];
   const greeting = theme.revealGreeting(state.name);
   const text =
-    ✉️ Your friend sent you a special ${theme.label} greeting!\n\n +
-    🎉 ${greeting}\n\n${state.wish}\n\n👉 Create your own free greeting at ${theme.label} Wish Generator;
+    `✉️ Your friend sent you a special ${theme.label} greeting!\n\n` +
+    `🎉 ${greeting}\n\n${state.wish}\n\n👉 Create your own free greeting at ${theme.label} Wish Generator`;
 
   try {
     if (navigator.share) {
@@ -923,7 +923,7 @@ function init() {
     const len = nameInput.value.length;
     const counter = document.getElementById("char-counter");
     if (len >= 20) {
-      counter.textContent = ${len} / 40;
+      counter.textContent = `${len} / 40`;
       counter.style.opacity = "1";
     } else {
       counter.style.opacity = "0";
@@ -932,8 +932,8 @@ function init() {
 
   nameInput.addEventListener("focus", () => {
     const theme = THEMES[state.themeIndex];
-    nameInput.style.border = 1.5px solid ${theme.primaryColor}cc;
-    nameInput.style.boxShadow = 0 0 0 4px ${theme.primaryColor}22;
+    nameInput.style.border = `1.5px solid ${theme.primaryColor}cc`;
+    nameInput.style.boxShadow = `0 0 0 4px ${theme.primaryColor}22`;
   });
 
   nameInput.addEventListener("blur", () => {
@@ -964,8 +964,8 @@ function init() {
   dropZone.addEventListener("dragover", (e) => {
     e.preventDefault();
     const theme = THEMES[state.themeIndex];
-    dropZone.style.borderColor = ${theme.primaryColor}cc;
-    dropZone.style.background = ${theme.primaryColor}14;
+    dropZone.style.borderColor = `${theme.primaryColor}cc`;
+    dropZone.style.background = `${theme.primaryColor}14`;
     dropZone.classList.add("dragging");
   });
 
