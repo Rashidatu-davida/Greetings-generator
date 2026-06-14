@@ -1,166 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-       <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Wish Generator App</title>
+  <meta name="description" content="Create personalized, elegant birthday and occasion wishes in seconds. Free, no sign-up required." />
+  <meta name="theme-color" content="#0d1117" />
+  <!-- Google Fonts: Playfair Display (headings) + Plus Jakarta Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 Free — professional icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <!-- App styles -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-     <!-- Animated background -->
-    <div class="background">
-        <span class="star s1"></span>
-        <span class="star s2"></span>
-        <span class="star s3"></span>
-        <span class="star s4"></span>
+  <div id="app">
 
-        <span class="dot d1"></span>
-        <span class="dot d2"></span>
-        <span class="dot d3"></span>
-        <span class="dot d4"></span>
+    <!-- ===================== CREATE SCREEN ===================== -->
+    <div id="create-screen" class="screen">
+      <div class="floating-elements" id="create-floats" aria-hidden="true"></div>
+
+      <div class="screen-inner">
+        <!-- Theme Carousel -->
+        <div class="carousel-wrap" role="group" aria-label="Select occasion">
+          <button class="carousel-btn" id="prev-btn" aria-label="Previous occasion theme">
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          </button>
+          <div class="carousel-label-wrap">
+            <div class="carousel-label" id="carousel-label">
+              <span class="carousel-emoji" id="carousel-emoji"></span>
+              <span class="carousel-text" id="carousel-text"></span>
+            </div>
+          </div>
+          <button class="carousel-btn" id="next-btn" aria-label="Next occasion theme">
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Occasion themes"></div>
+
+        <!-- Heading -->
+        <div class="heading-wrap">
+          <h1 class="main-heading" id="create-heading">
+            <span class="heading-line1" id="heading-line1"></span>
+            <span class="heading-line2" id="heading-line2"></span>
+          </h1>
+          <p class="heading-sub" id="heading-sub">Turn a simple name and photo into a beautiful personalized greeting in seconds.</p>
+        </div>
+
+        <!-- Form Card -->
+        <form class="glass-card create-form" id="create-form" novalidate>
+          <!-- Name input -->
+          <div class="form-group">
+            <label class="field-label" for="name-input">Enter Name</label>
+            <input
+              type="text"
+              class="name-input"
+              id="name-input"
+              maxlength="40"
+              autocomplete="off"
+              spellcheck="false"
+              autocapitalize="words"
+            />
+            <span class="char-counter" id="char-counter" aria-live="polite"></span>
+          </div>
+
+          <!-- Photo upload -->
+          <div class="form-group">
+            <label class="field-label">
+              Upload Photo
+              <span class="optional-tag">(Optional)</span>
+            </label>
+            <div class="drop-zone" id="drop-zone" role="button" tabindex="0" aria-label="Upload photo by clicking or dragging a file here">
+              <!-- Empty state -->
+              <div class="dz-empty" id="dz-empty">
+                <div class="dz-icon-wrap" id="dz-icon-wrap">
+                  <i class="fa-solid fa-camera dz-camera-icon" id="dz-camera-icon" aria-hidden="true"></i>
+                </div>
+                <div class="dz-text">
+                  <p class="dz-primary">Tap to upload a photo</p>
+                  <p class="dz-secondary">or drag and drop here</p>
+                </div>
+                <div class="dz-hint" aria-hidden="true">
+                  <i class="fa-solid fa-upload"></i>
+                  <span>PNG, JPG up to 10MB</span>
+                </div>
+              </div>
+              <!-- Preview state -->
+              <div class="dz-preview" id="dz-preview">
+                <img class="preview-img" id="preview-img" src="" alt="Uploaded photo preview" />
+                <div class="preview-info">
+                  <p class="preview-uploaded" id="preview-uploaded">Photo uploaded!</p>
+                  <p class="preview-change">Tap to change</p>
+                </div>
+                <button type="button" class="preview-remove" id="preview-remove" aria-label="Remove uploaded photo">Remove</button>
+              </div>
+            </div>
+            <input type="file" id="file-input" accept="image/*" aria-hidden="true" tabindex="-1" />
+          </div>
+
+          <!-- Generate Button -->
+          <button type="submit" class="generate-btn" id="generate-btn" disabled>
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+            <span id="generate-label">Generate Wish</span>
+          </button>
+        </form>
+
+        <p class="footer-note">✨ 100% free · No sign-up required</p>
+      </div>
     </div>
 
-    <!-- ==========================
-            PAGE 1
-    =========================== -->
+    <!-- ===================== REVEAL SCREEN ===================== -->
+    <div id="reveal-screen" class="screen" style="display:none">
+      <div class="floating-elements" id="reveal-floats" aria-hidden="true"></div>
+      <div class="avatar-glow" id="avatar-glow" aria-hidden="true"></div>
 
-    <section id="pageOne" class="screen active">
-
-        <div class="container">
-
-            <div class="badge">
-                ✨ Birthday Generator
-            </div>
-
-            <h1>
-                Create a Personalized
-                <span>Birthday Wish</span>
-            </h1>
-
-            <p class="subtitle">
-                Turn a simple name and photo into a beautiful
-                birthday message in seconds.
-            </p>
-
-            <div class="card">
-
-                <label>ENTER NAME</label>
-
-                <input
-                    type="text"
-                    id="userName"
-                    placeholder="Who's the birthday star? ✨"
-                >
-
-                <label class="upload-title">
-                    UPLOAD PHOTO
-                    <span>(Optional)</span>
-                </label>
-
-                <label class="upload-box">
-                    <input
-                        type="file"
-                        id="photoUpload"
-                        accept="image/*"
-                        hidden
-                    >
-
-                    <div id="uploadPreview">
-                        <div class="upload-icon">
-                            📷
-                        </div>
-
-                        <h3>Tap to upload a photo</h3>
-
-                        <p>or drag and drop here</p>
-
-                        <small>PNG, JPG up to 10MB</small>
-                    </div>
-                </label>
-
-                <button id="generateBtn" disabled>
-                    ✨ Generate Wish
-                </button>
-
-            </div>
-
-            <p class="footer-text">
-                ✨ 100% free • No sign-up required
-            </p>
-
+      <div class="screen-inner reveal-inner">
+        <!-- Avatar -->
+        <div class="avatar-wrap" id="avatar-wrap">
+          <div class="avatar-ring" id="avatar-ring" aria-hidden="true"></div>
+          <div class="avatar-circle" id="avatar-circle">
+            <img class="avatar-img" id="avatar-img" src="" alt="" />
+            <i class="fa-solid fa-heart avatar-heart" id="avatar-heart" aria-hidden="true"></i>
+          </div>
+          <div class="emoji-badge" id="emoji-badge" aria-hidden="true"></div>
         </div>
 
-    </section>
-
-    <!-- ==========================
-            PAGE 2
-    =========================== -->
-
-    <section id="pageTwo" class="screen">
-
-        <div class="container">
-
-            <!-- Profile circle -->
-            <div class="profile-circle">
-                <img id="resultImage" src="" alt="">
-                <div id="heartIcon">♡</div>
-            </div>
-
-            <p class="wish-label">
-                🎉 WISHING A HAPPY BIRTHDAY TO
-            </p>
-
-            <h2 id="displayName">
-                Enter Name!
-            </h2>
-
-            <!-- Wish card -->
-            <div class="wish-card">
-
-                <div class="wish-header">
-                    🎂 <span>BIRTHDAY MESSAGE</span>
-                </div>
-
-                <p id="wishText">
-                    Loading birthday wish...
-                </p>
-
-                <hr>
-
-                <div class="credit">
-                    ♡ Made with love • Birthday Wish Generator
-                </div>
-
-            </div>
-
-            <!-- Reserved AdSense area -->
-            <div class="ad-space">
-                Sponsored Message
-            </div>
-
-            <!-- Buttons -->
-            <button id="anotherWishBtn" class="primary-btn">
-                ↻ Generate Another Wish
-            </button>
-
-            <button id="shareBtn" class="secondary-btn">
-                ✉ Share Your Wish
-            </button>
-
-            <button id="restartBtn" class="text-btn">
-                ← Start over
-            </button>
-
+        <!-- Greeting -->
+        <div class="greeting-section">
+          <p class="greeting-sub" id="greeting-sub"></p>
+          <h1 class="greeting-heading" id="greeting-heading"></h1>
         </div>
 
-    </section>
+        <!-- Wish Card -->
+        <div class="wish-card glass-card" id="wish-card">
+          <div class="card-accent-line" id="card-accent-line" aria-hidden="true"></div>
+          <div class="card-badge-row">
+            <div class="card-emoji-box" id="card-emoji-box" aria-hidden="true"></div>
+            <p class="card-badge-text" id="card-badge-text"></p>
+          </div>
+          <p class="wish-text" id="wish-text"></p>
+          <div class="card-footer-row">
+            <i class="fa-solid fa-heart card-heart-icon" id="card-heart-icon" aria-hidden="true"></i>
+            <p class="card-credit" id="card-credit">Made with love · Wish Generator</p>
+            <button type="button" class="card-copy-btn" id="card-copy-btn" aria-label="Copy wish text">
+              <i class="fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
 
-    <script src="script.js"></script>
+        <!-- Action Buttons -->
+        <div class="reveal-actions">
+          <button class="btn-primary-action" id="new-wish-btn">
+            <i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
+            Try a Different Message
+          </button>
+          <button class="btn-secondary-action" id="share-btn">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            Share Your Wish
+          </button>
+          <button class="btn-ghost-action" id="reset-btn">
+            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+            Start over
+          </button>
+        </div>
+      </div>
+    </div>
 
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div><!-- /#app -->
+
+  <!-- canvas-confetti 1.9.4 — celebration particle effects -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+  <!-- App logic -->
+  <script src="script.js"></script>
 </body>
 </html>
