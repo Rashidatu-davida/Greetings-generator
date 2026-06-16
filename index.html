@@ -6,10 +6,10 @@
   <title>Birthday Wish Generator App</title>
   <meta name="description" content="Create personalized, elegant birthday and occasion wishes in seconds. Free, no sign-up required." />
   <meta name="theme-color" content="#0d1117" />
-  <!-- Google Fonts: Playfair Display (headings) + Plus Jakarta Sans (body) -->
+  <!-- Google Fonts: Playfair Display (headings) + Nunito (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Font Awesome 6 Free — professional icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <!-- App styles -->
@@ -29,6 +29,7 @@
             <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
           </button>
           <div class="carousel-label-wrap">
+            <p class="by-relateai" id="by-relateai"><span class="by-word">by</span><span class="relateai-word">RelateAi</span></p>
             <div class="carousel-label" id="carousel-label">
               <span class="carousel-emoji" id="carousel-emoji"></span>
               <span class="carousel-text" id="carousel-text"></span>
@@ -100,14 +101,36 @@
             <input type="file" id="file-input" accept="image/*" aria-hidden="true" tabindex="-1" />
           </div>
 
+          <!-- Spotify link -->
+          <div class="form-group">
+            <label class="field-label" for="spotify-input">
+              Add a Song
+              <span class="optional-tag">(Optional)</span>
+            </label>
+            <div class="spotify-input-wrap">
+              <i class="fa-brands fa-spotify spotify-input-icon" aria-hidden="true"></i>
+              <input
+                type="url"
+                class="spotify-input"
+                id="spotify-input"
+                placeholder="Paste a Spotify song link…"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <!-- Terms checkbox -->
+          <label class="terms-checkbox-wrap">
+            <input type="checkbox" id="terms-checkbox" />
+            <span class="terms-checkbox-text">I agree to the Terms &amp; Conditions and Privacy Policy.</span>
+          </label>
+
           <!-- Generate Button -->
           <button type="submit" class="generate-btn" id="generate-btn" disabled>
             <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
-            <span id="generate-label">Generate Wish</span>
+            <strong id="generate-label">Generate Wish</strong>
           </button>
         </form>
-
-        <p class="footer-note">✨ 100% free · No sign-up required</p>
       </div>
     </div>
 
@@ -129,7 +152,6 @@
 
         <!-- Greeting -->
         <div class="greeting-section">
-          <p class="greeting-sub" id="greeting-sub"></p>
           <h1 class="greeting-heading" id="greeting-heading"></h1>
         </div>
 
@@ -141,20 +163,25 @@
             <p class="card-badge-text" id="card-badge-text"></p>
           </div>
           <p class="wish-text" id="wish-text"></p>
-          <div class="card-footer-row">
-            <i class="fa-solid fa-heart card-heart-icon" id="card-heart-icon" aria-hidden="true"></i>
-            <p class="card-credit" id="card-credit">Made with love · Wish Generator</p>
-            <button type="button" class="card-copy-btn" id="card-copy-btn" aria-label="Copy wish text">
-              <i class="fa-regular fa-copy" aria-hidden="true"></i>
-            </button>
+            <div class="card-footer-row">
+
           </div>
         </div>
 
-        <!-- Reserved AdSense area -->
+        <!-- Spotify Player -->
+        <div class="spotify-player-wrap" id="spotify-player-wrap" style="display:none">
+          <p class="spotify-player-label">
+            <i class="fa-brands fa-spotify" aria-hidden="true"></i>
+            Now Playing
+          </p>
+          <div id="spotify-player-container"></div>
+        </div>
+
+                    <!-- Reserved AdSense area -->
             <div class="ad-space">
                 <span class="ad-space-label">Advertisement</span>
             </div>
-        
+
         <!-- Action Buttons -->
         <div class="reveal-actions">
           <button class="btn-primary-action" id="new-wish-btn">
