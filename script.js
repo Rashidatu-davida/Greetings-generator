@@ -1,40 +1,40 @@
 /* ============================================================
-   THEMES — 8 occasions with full visual + message data
+   THEMES — 8 occasions, brand palette, light-mode visuals
    ============================================================ */
 const THEMES = [
   {
     id: "birthday",
-    emoji: "✨",
+    className: "theme-birthday",
+    emoji: "🎂",
     label: "Birthday",
-    carouselLabel: "Birthday Greetings Generator",
+    carouselLabel: " Birthday Generator",
     heading: "Create a Personalized\nBirthday Wish",
     subtitle: "Create a heartfelt message your birthday star will treasure.",
-    namePlaceholder: "Who's the birthday star? ✨",
+    namePlaceholder: "Who's the birthday star? 🎂",
     generateLabel: "Generate Wish",
     revealGreeting: (n) => `Happy Birthday, ${n}!`,
     tagBadge: "Birthday Message",
     cardEmoji: "🎂",
-    bg: "radial-gradient(ellipse at 20% 20%, #3b0764 0%, #1a0533 40%, #0f0a2e 70%, #0d1117 100%)",
-    glassCard: "rgba(255,255,255,0.08)",
-    primaryGlow: "rgba(192,132,252,0.25)",
-    primaryColor: "#c084fc",
-    secondaryColor: "#f472b6",
-    goldColor: "#fbbf24",
-    buttonGradient: "linear-gradient(135deg, #9333ea 0%, #c026d3 40%, #db2777 100%)",
-    buttonShadow: "0 8px 24px rgba(147,51,234,0.45)",
-    badgeBg: "rgba(192,132,252,0.15)",
-    badgeColor: "#c084fc",
-    headingGradient: "linear-gradient(135deg, #c084fc 0%, #f472b6 50%, #fbbf24 100%)",
-    namePill: { bg: "rgba(192,132,252,0.15)", border: "rgba(192,132,252,0.3)", color: "#c084fc" },
-    topAccentLine: "linear-gradient(90deg,transparent,rgba(192,132,252,0.7),rgba(244,114,182,0.7),transparent)",
-    confettiColors: ["#c084fc","#f472b6","#fbbf24","#60a5fa","#34d399","#a78bfa"],
-    sparkleColor: "rgba(251,191,36,0.9)",
-    blobColors: ["rgba(192,132,252,0.18)","rgba(244,114,182,0.14)","rgba(96,165,250,0.12)","rgba(251,191,36,0.10)"],
-    dotColors: ["#f472b6","#a78bfa","#fbbf24","#34d399","#f472b6","#60a5fa","#fbbf24","#a78bfa"],
+    glassCard: "#ffffff",
+    primaryGlow: "rgba(255,21,2,0.1)",
+    primaryColor: "#ff1502",
+    secondaryColor: "#ff6d02",
+    goldColor: "#dfb400",
+    buttonGradient: "linear-gradient(135deg, #ff1502 0%, #ff4002 55%, #ff6d02 100%)",
+    buttonShadow: "0 6px 20px rgba(255,21,2,0.28)",
+    badgeBg: "rgba(255,21,2,0.08)",
+    badgeColor: "#ff1502",
+    headingGradient: "linear-gradient(135deg, #ff1502 0%, #ff4002 50%, #ff6d02 100%)",
+    namePill: { bg: "rgba(255,21,2,0.07)", border: "rgba(255,21,2,0.22)", color: "#ff1502" },
+    topAccentLine: "linear-gradient(90deg, transparent, #ff1502, #ff6d02, transparent)",
+    confettiColors: ["#ff1502","#ff6d02","#ff4002","#ff0259","#dfb400","#00aeba"],
+    sparkleColor: "rgba(223,180,0,0.75)",
+    blobColors: ["rgba(255,21,2,0.09)","rgba(255,109,2,0.07)","rgba(0,174,186,0.06)","rgba(223,180,0,0.06)"],
+    dotColors: ["#ff1502","#ff6d02","#ff4002","#ff0259","#dfb400","#00aeba","#ff1502","#ff4002"],
     messages: [
       "May your birthday be as luminous as your spirit — overflowing with laughter, love, and every beautiful thing you deserve. Here's to a year where all your boldest dreams become your reality. You are beyond cherished. 🎂✨",
       "Another year of being absolutely magnetic! Your light makes the whole world brighter. Wishing you a birthday filled with magic moments, genuine connections, and the kind of joy that makes time slow down. 💫🌸",
-      "To the most iconic person in the room — happy birthday! May this year bring you clarity, confidence, and celebrations big and small. The world is richer simply because you're in it. Keep shining exactly as you are. 🎉💜",
+      "To the most iconic person in the room — happy birthday! May this year bring you clarity, confidence, and celebrations big and small. The world is richer simply because you're in it. Keep shining exactly as you are. 🎉",
       "On your special day, may every small thing feel extraordinary — your morning coffee, the songs on your playlist, the people who love you most. You radiate warmth wherever you go. Wishing you a year as wonderful as you are. 🌟🎈",
       "Happy birthday! Wishing you a year that feels like your favourite playlist on a golden afternoon — full of good vibes, the right people, and moments you'll want to replay forever. You are endlessly loved. 🎶💛",
       "Today the universe is celebrating YOU, and honestly, same. You deserve every gift, every laugh, every sweet moment this birthday brings. May this next chapter be your most beautiful one yet. 🦋✨",
@@ -44,9 +44,10 @@ const THEMES = [
   },
   {
     id: "christmas",
+    className: "theme-christmas",
     emoji: "🎄",
     label: "Christmas",
-    carouselLabel: "Christmas Greetings Generator",
+    carouselLabel: " Christmas Greeter",
     heading: "Send a Magical\nChristmas Greeting",
     subtitle: "Send warm seasonal wishes to someone on your nice list.",
     namePlaceholder: "Who's on the nice list? 🎅",
@@ -54,23 +55,22 @@ const THEMES = [
     revealGreeting: (n) => `Merry Christmas, ${n}!`,
     tagBadge: "Christmas Message",
     cardEmoji: "🎄",
-    bg: "radial-gradient(ellipse at 20% 15%, #1a0a0a 0%, #0a1f0a 40%, #071507 65%, #050d05 100%)",
-    glassCard: "rgba(255,255,255,0.07)",
-    primaryGlow: "rgba(34,197,94,0.2)",
-    primaryColor: "#22c55e",
-    secondaryColor: "#ef4444",
-    goldColor: "#fbbf24",
-    buttonGradient: "linear-gradient(135deg, #15803d 0%, #16a34a 50%, #dc2626 100%)",
-    buttonShadow: "0 8px 24px rgba(21,128,61,0.45)",
-    badgeBg: "rgba(34,197,94,0.15)",
-    badgeColor: "#4ade80",
-    headingGradient: "linear-gradient(135deg, #4ade80 0%, #fbbf24 50%, #f87171 100%)",
-    namePill: { bg: "rgba(34,197,94,0.15)", border: "rgba(34,197,94,0.3)", color: "#4ade80" },
-    topAccentLine: "linear-gradient(90deg,transparent,rgba(74,222,128,0.7),rgba(251,191,36,0.7),transparent)",
-    confettiColors: ["#22c55e","#ef4444","#fbbf24","#ffffff","#4ade80","#fca5a5"],
-    sparkleColor: "rgba(251,191,36,0.9)",
-    blobColors: ["rgba(34,197,94,0.15)","rgba(239,68,68,0.12)","rgba(251,191,36,0.10)","rgba(74,222,128,0.08)"],
-    dotColors: ["#4ade80","#fbbf24","#ef4444","#ffffff","#22c55e","#fca5a5","#fbbf24","#4ade80"],
+    glassCard: "#ffffff",
+    primaryGlow: "rgba(12,135,69,0.1)",
+    primaryColor: "#0c8745",
+    secondaryColor: "#d00416",
+    goldColor: "#dfb400",
+    buttonGradient: "linear-gradient(135deg, #0c8745 0%, #0a9e53 55%, #d00416 100%)",
+    buttonShadow: "0 6px 20px rgba(12,135,69,0.28)",
+    badgeBg: "rgba(12,135,69,0.08)",
+    badgeColor: "#0c8745",
+    headingGradient: "linear-gradient(135deg, #0c8745 0%, #dfb400 50%, #d00416 100%)",
+    namePill: { bg: "rgba(12,135,69,0.07)", border: "rgba(12,135,69,0.22)", color: "#0c8745" },
+    topAccentLine: "linear-gradient(90deg, transparent, #0c8745, #d00416, transparent)",
+    confettiColors: ["#0c8745","#d00416","#dfb400","#ff1502","#00aeba","#ff6d02"],
+    sparkleColor: "rgba(223,180,0,0.8)",
+    blobColors: ["rgba(12,135,69,0.09)","rgba(208,4,22,0.07)","rgba(223,180,0,0.06)","rgba(0,174,186,0.05)"],
+    dotColors: ["#0c8745","#d00416","#dfb400","#00aeba","#ff1502","#0c8745","#d00416","#dfb400"],
     messages: [
       "May your Christmas be as warm and bright as the lights on the tree — filled with laughter around the table, cozy moments by the fire, and the joy of being loved. Wishing you magic in every corner of this season. 🎄✨",
       "Season's warmest greetings! May this Christmas wrap you in all the peace, joy, and love you deserve. Here's to twinkling lights, familiar songs, and moments that make your heart feel full. 🎅🌟",
@@ -81,9 +81,10 @@ const THEMES = [
   },
   {
     id: "easter",
+    className: "theme-easter",
     emoji: "🐣",
     label: "Easter",
-    carouselLabel: "Easter Greetings Generator",
+    carouselLabel: " Easter Greeter",
     heading: "Share a Joyful\nEaster Greeting",
     subtitle: "Share joyful Easter blessings with someone you love.",
     namePlaceholder: "Who are you blessing? 🌸",
@@ -91,23 +92,22 @@ const THEMES = [
     revealGreeting: (n) => `Happy Easter, ${n}!`,
     tagBadge: "Easter Message",
     cardEmoji: "🐣",
-    bg: "radial-gradient(ellipse at 30% 20%, #2d0a3a 0%, #1a0a2e 40%, #0f0a1a 65%, #080810 100%)",
-    glassCard: "rgba(255,255,255,0.09)",
-    primaryGlow: "rgba(217,70,239,0.2)",
-    primaryColor: "#d946ef",
-    secondaryColor: "#86efac",
-    goldColor: "#fde68a",
-    buttonGradient: "linear-gradient(135deg, #a855f7 0%, #d946ef 50%, #ec4899 100%)",
-    buttonShadow: "0 8px 24px rgba(168,85,247,0.4)",
-    badgeBg: "rgba(217,70,239,0.15)",
-    badgeColor: "#e879f9",
-    headingGradient: "linear-gradient(135deg, #e879f9 0%, #86efac 50%, #fde68a 100%)",
-    namePill: { bg: "rgba(217,70,239,0.15)", border: "rgba(217,70,239,0.3)", color: "#e879f9" },
-    topAccentLine: "linear-gradient(90deg,transparent,rgba(232,121,249,0.7),rgba(134,239,172,0.7),transparent)",
-    confettiColors: ["#e879f9","#86efac","#fde68a","#f9a8d4","#a5f3fc","#c4b5fd"],
-    sparkleColor: "rgba(253,230,138,0.9)",
-    blobColors: ["rgba(217,70,239,0.15)","rgba(134,239,172,0.12)","rgba(253,230,138,0.10)","rgba(244,114,182,0.10)"],
-    dotColors: ["#e879f9","#86efac","#fde68a","#f9a8d4","#a5f3fc","#c4b5fd","#86efac","#fde68a"],
+    glassCard: "#ffffff",
+    primaryGlow: "rgba(255,109,2,0.1)",
+    primaryColor: "#ff6d02",
+    secondaryColor: "#00aeba",
+    goldColor: "#dfb400",
+    buttonGradient: "linear-gradient(135deg, #ff6d02 0%, #ff8c00 55%, #00aeba 100%)",
+    buttonShadow: "0 6px 20px rgba(255,109,2,0.28)",
+    badgeBg: "rgba(255,109,2,0.08)",
+    badgeColor: "#ff6d02",
+    headingGradient: "linear-gradient(135deg, #ff6d02 0%, #dfb400 50%, #00aeba 100%)",
+    namePill: { bg: "rgba(255,109,2,0.07)", border: "rgba(255,109,2,0.22)", color: "#ff6d02" },
+    topAccentLine: "linear-gradient(90deg, transparent, #ff6d02, #00aeba, transparent)",
+    confettiColors: ["#ff6d02","#00aeba","#dfb400","#ff0259","#ff1502","#0c8745"],
+    sparkleColor: "rgba(223,180,0,0.8)",
+    blobColors: ["rgba(255,109,2,0.09)","rgba(0,174,186,0.07)","rgba(223,180,0,0.06)","rgba(255,2,89,0.05)"],
+    dotColors: ["#ff6d02","#00aeba","#dfb400","#ff0259","#ff1502","#0c8745","#ff6d02","#00aeba"],
     messages: [
       "Wishing you an Easter overflowing with colour, hope, and new beginnings. May this season remind you of all the beauty that surrounds you and the wonderful things still ahead. You are a true gift to this world. 🌸🐣",
       "Happy Easter! May every egg you find, every smile you share, and every moment of this beautiful season fill your heart with the purest joy. Here's to fresh starts, blooming friendships, and all things wonderful. 🌷✨",
@@ -117,9 +117,10 @@ const THEMES = [
   },
   {
     id: "mothers-day",
+    className: "theme-mothers",
     emoji: "💐",
     label: "Mother's Day",
-    carouselLabel: "Mother's Day Greetings Generator",
+    carouselLabel: " Mother's Day Greeter",
     heading: "Celebrate the\nMost Amazing Mum",
     subtitle: "Tell Mum how much she means in a few beautiful words.",
     namePlaceholder: "Her beautiful name… 💐",
@@ -127,23 +128,22 @@ const THEMES = [
     revealGreeting: (n) => `Happy Mother's Day, ${n}!`,
     tagBadge: "Mother's Day Message",
     cardEmoji: "💐",
-    bg: "radial-gradient(ellipse at 25% 20%, #3a0a1e 0%, #1f0a14 40%, #120609 65%, #0a0408 100%)",
-    glassCard: "rgba(255,255,255,0.08)",
-    primaryGlow: "rgba(251,113,133,0.22)",
-    primaryColor: "#fb7185",
-    secondaryColor: "#fda4af",
-    goldColor: "#fcd34d",
-    buttonGradient: "linear-gradient(135deg, #be185d 0%, #e11d48 50%, #fb923c 100%)",
-    buttonShadow: "0 8px 24px rgba(190,24,93,0.45)",
-    badgeBg: "rgba(251,113,133,0.15)",
-    badgeColor: "#fb7185",
-    headingGradient: "linear-gradient(135deg, #fda4af 0%, #fb7185 50%, #fcd34d 100%)",
-    namePill: { bg: "rgba(251,113,133,0.15)", border: "rgba(251,113,133,0.3)", color: "#fda4af" },
-    topAccentLine: "linear-gradient(90deg,transparent,rgba(251,113,133,0.7),rgba(252,211,77,0.7),transparent)",
-    confettiColors: ["#fb7185","#fda4af","#fcd34d","#f9a8d4","#fbcfe8","#fef08a"],
-    sparkleColor: "rgba(252,211,77,0.9)",
-    blobColors: ["rgba(251,113,133,0.18)","rgba(253,164,175,0.14)","rgba(252,211,77,0.10)","rgba(251,207,232,0.12)"],
-    dotColors: ["#fb7185","#fcd34d","#fda4af","#fbcfe8","#f9a8d4","#fef08a","#fb7185","#fda4af"],
+    glassCard: "#ffffff",
+    primaryGlow: "rgba(255,2,89,0.1)",
+    primaryColor: "#ff0259",
+    secondaryColor: "#ff6d02",
+    goldColor: "#dfb400",
+    buttonGradient: "linear-gradient(135deg, #ff0259 0%, #ff1562 55%, #ff6d02 100%)",
+    buttonShadow: "0 6px 20px rgba(255,2,89,0.28)",
+    badgeBg: "rgba(255,2,89,0.08)",
+    badgeColor: "#ff0259",
+    headingGradient: "linear-gradient(135deg, #ff0259 0%, #ff4002 50%, #dfb400 100%)",
+    namePill: { bg: "rgba(255,2,89,0.07)", border: "rgba(255,2,89,0.22)", color: "#ff0259" },
+    topAccentLine: "linear-gradient(90deg, transparent, #ff0259, #ff6d02, transparent)",
+    confettiColors: ["#ff0259","#ff6d02","#ff4002","#dfb400","#ff1502","#00aeba"],
+    sparkleColor: "rgba(223,180,0,0.8)",
+    blobColors: ["rgba(255,2,89,0.09)","rgba(255,109,2,0.07)","rgba(223,180,0,0.06)","rgba(0,174,186,0.05)"],
+    dotColors: ["#ff0259","#ff6d02","#ff4002","#dfb400","#ff1502","#00aeba","#ff0259","#ff4002"],
     messages: [
       "To the woman who made everything possible — you are the definition of unconditional love, quiet strength, and boundless grace. Thank you for being our anchor, our cheerleader, and our greatest gift. Happy Mother's Day, with all the love in the world. 💐✨",
       "There are no words powerful enough to capture everything you mean to us — but on this special day, we want you to feel every ounce of the love you have always given so freely. You deserve the world, Mum. 🌸💛",
@@ -154,9 +154,10 @@ const THEMES = [
   },
   {
     id: "fathers-day",
+    className: "theme-fathers",
     emoji: "👔",
     label: "Father's Day",
-    carouselLabel: "Father's Day Greetings Generator",
+    carouselLabel: " Father's Day Greeter",
     heading: "Honour the Most\nIncredible Dad",
     subtitle: "Honour Dad with words that truly capture how much he means.",
     namePlaceholder: "His great name… 👔",
@@ -164,36 +165,36 @@ const THEMES = [
     revealGreeting: (n) => `Happy Father's Day, ${n}!`,
     tagBadge: "Father's Day Message",
     cardEmoji: "👔",
-    bg: "radial-gradient(ellipse at 20% 20%, #050e1f 0%, #0a1628 40%, #060d1a 65%, #040810 100%)",
-    glassCard: "rgba(255,255,255,0.07)",
-    primaryGlow: "rgba(59,130,246,0.2)",
-    primaryColor: "#3b82f6",
-    secondaryColor: "#93c5fd",
-    goldColor: "#fbbf24",
-    buttonGradient: "linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0f766e 100%)",
-    buttonShadow: "0 8px 24px rgba(29,78,216,0.45)",
-    badgeBg: "rgba(59,130,246,0.15)",
-    badgeColor: "#60a5fa",
-    headingGradient: "linear-gradient(135deg, #93c5fd 0%, #60a5fa 50%, #fbbf24 100%)",
-    namePill: { bg: "rgba(59,130,246,0.15)", border: "rgba(59,130,246,0.3)", color: "#93c5fd" },
-    topAccentLine: "linear-gradient(90deg,transparent,rgba(96,165,250,0.7),rgba(251,191,36,0.7),transparent)",
-    confettiColors: ["#3b82f6","#93c5fd","#fbbf24","#1d4ed8","#bae6fd","#e2e8f0"],
-    sparkleColor: "rgba(251,191,36,0.9)",
-    blobColors: ["rgba(59,130,246,0.15)","rgba(147,197,253,0.10)","rgba(251,191,36,0.08)","rgba(30,58,138,0.20)"],
-    dotColors: ["#60a5fa","#fbbf24","#93c5fd","#bae6fd","#3b82f6","#e2e8f0","#fbbf24","#60a5fa"],
+    glassCard: "#ffffff",
+    primaryGlow: "rgba(0,174,186,0.1)",
+    primaryColor: "#333333",
+    secondaryColor: "#00aeba",
+    goldColor: "#d37d00",
+    buttonGradient: "linear-gradient(135deg, #222222 0%, #333333 55%, #00aeba 100%)",
+    buttonShadow: "0 6px 20px rgba(0,0,0,0.22)",
+    badgeBg: "rgba(0,0,0,0.06)",
+    badgeColor: "#333333",
+    headingGradient: "linear-gradient(135deg, #222222 0%, #444444 50%, #00aeba 100%)",
+    namePill: { bg: "rgba(0,0,0,0.06)", border: "rgba(0,0,0,0.18)", color: "#333333" },
+    topAccentLine: "linear-gradient(90deg, transparent, #333333, #00aeba, transparent)",
+    confettiColors: ["#333333","#00aeba","#d37d00","#dfb400","#555555","#0c8745"],
+    sparkleColor: "rgba(0,174,186,0.7)",
+    blobColors: ["rgba(0,0,0,0.05)","rgba(0,174,186,0.07)","rgba(211,125,0,0.06)","rgba(0,0,0,0.04)"],
+    dotColors: ["#333333","#00aeba","#d37d00","#555555","#0c8745","#00aeba","#dfb400","#333333"],
     messages: [
       "To the man who showed us what strength, patience, and love really look like — thank you for every sacrifice made quietly, every lesson taught by example, and every moment you showed up. Happy Father's Day. You are our hero, always. 👔✨",
       "Dad, your steady presence has been our greatest comfort. You lead with wisdom, love with courage, and always make us feel safe just by being there. Today we celebrate everything you are. We are beyond grateful for you. 🌟💛",
       "Happy Father's Day to a man who defines what it means to be dependable, kind, and quietly brilliant. You've given us more than you know — and today we want you to feel every bit of the admiration and love we carry for you. 👔🏅",
-      "Some people make life better just by being in it — you are one of those rare people, Dad. Thank you for your patience, your guidance, and the moments that became the best memories of our lives. Happy Father's Day. 🌟💙",
+      "Some people make life better just by being in it — you are one of those rare people, Dad. Thank you for your patience, your guidance, and the moments that became the best memories of our lives. Happy Father's Day. 🌟",
       "Behind every great family is a dad who gave everything without counting the cost. That's you. Today is your day to rest, to be celebrated, and to know how deeply and profoundly loved you truly are. 👔✨",
     ],
   },
   {
     id: "eid",
+    className: "theme-eid",
     emoji: "☪️",
     label: "Eid",
-    carouselLabel: "Eid Greetings Generator",
+    carouselLabel: " Eid Greeter",
     heading: "Share the Joy of\nEid with Someone Special",
     subtitle: "Send warm Eid blessings to someone you care about.",
     namePlaceholder: "Their name… ☪️",
@@ -201,23 +202,22 @@ const THEMES = [
     revealGreeting: (n) => `Eid Mubarak, ${n}!`,
     tagBadge: "Eid Mubarak Message",
     cardEmoji: "🌙",
-    bg: "radial-gradient(ellipse at 20% 20%, #021a0c 0%, #071a0f 40%, #040d08 65%, #020807 100%)",
-    glassCard: "rgba(255,255,255,0.07)",
-    primaryGlow: "rgba(52,211,153,0.22)",
-    primaryColor: "#34d399",
-    secondaryColor: "#6ee7b7",
-    goldColor: "#fbbf24",
-    buttonGradient: "linear-gradient(135deg, #065f46 0%, #059669 50%, #d97706 100%)",
-    buttonShadow: "0 8px 24px rgba(5,150,105,0.45)",
-    badgeBg: "rgba(52,211,153,0.15)",
-    badgeColor: "#34d399",
-    headingGradient: "linear-gradient(135deg, #6ee7b7 0%, #34d399 40%, #fbbf24 100%)",
-    namePill: { bg: "rgba(52,211,153,0.15)", border: "rgba(52,211,153,0.3)", color: "#6ee7b7" },
-    topAccentLine: "linear-gradient(90deg,transparent,rgba(52,211,153,0.7),rgba(251,191,36,0.7),transparent)",
-    confettiColors: ["#34d399","#fbbf24","#6ee7b7","#d97706","#a7f3d0","#fde68a"],
-    sparkleColor: "rgba(251,191,36,0.95)",
-    blobColors: ["rgba(52,211,153,0.18)","rgba(251,191,36,0.14)","rgba(110,231,183,0.10)","rgba(217,119,6,0.10)"],
-    dotColors: ["#34d399","#fbbf24","#6ee7b7","#a7f3d0","#d97706","#fde68a","#34d399","#fbbf24"],
+    glassCard: "#ffffff",
+    primaryGlow: "rgba(12,135,69,0.1)",
+    primaryColor: "#0c8745",
+    secondaryColor: "#dfb400",
+    goldColor: "#dfb400",
+    buttonGradient: "linear-gradient(135deg, #0c8745 0%, #0a9e53 55%, #dfb400 100%)",
+    buttonShadow: "0 6px 20px rgba(12,135,69,0.28)",
+    badgeBg: "rgba(12,135,69,0.08)",
+    badgeColor: "#0c8745",
+    headingGradient: "linear-gradient(135deg, #0c8745 0%, #0a9e53 50%, #dfb400 100%)",
+    namePill: { bg: "rgba(12,135,69,0.07)", border: "rgba(12,135,69,0.22)", color: "#0c8745" },
+    topAccentLine: "linear-gradient(90deg, transparent, #0c8745, #dfb400, transparent)",
+    confettiColors: ["#0c8745","#dfb400","#00aeba","#d37d00","#ff6d02","#0c8745"],
+    sparkleColor: "rgba(223,180,0,0.85)",
+    blobColors: ["rgba(12,135,69,0.09)","rgba(223,180,0,0.08)","rgba(0,174,186,0.06)","rgba(12,135,69,0.05)"],
+    dotColors: ["#0c8745","#dfb400","#00aeba","#d37d00","#0c8745","#dfb400","#00aeba","#0c8745"],
     messages: [
       "Eid Mubarak! May this blessed occasion fill your heart with peace, your home with joy, and your life with the warmth of all those you love. Taqabbalallahu minna wa minkum — may Allah accept from us and from you. 🌙✨",
       "On this beautiful day of celebration and gratitude, I send you my warmest wishes. May your Eid be as radiant as the crescent moon, as sweet as the finest dates, and filled with all the blessings your heart can hold. ☪️🌟",
@@ -228,9 +228,10 @@ const THEMES = [
   },
   {
     id: "new-year",
+    className: "theme-newyear",
     emoji: "🎆",
     label: "New Year",
-    carouselLabel: "New Year Greetings Generator",
+    carouselLabel: " New Year Greeter",
     heading: "Ring in the New Year\nwith a Beautiful Wish",
     subtitle: "Start the new year right with a heartfelt wish for someone you love.",
     namePlaceholder: "Who's stepping into the new year? 🥂",
@@ -238,23 +239,22 @@ const THEMES = [
     revealGreeting: (n) => `Happy New Year, ${n}!`,
     tagBadge: "New Year Message",
     cardEmoji: "🥂",
-    bg: "radial-gradient(ellipse at 20% 15%, #0a0520 0%, #050310 40%, #000510 65%, #000208 100%)",
-    glassCard: "rgba(255,255,255,0.07)",
-    primaryGlow: "rgba(251,191,36,0.22)",
-    primaryColor: "#fbbf24",
-    secondaryColor: "#818cf8",
-    goldColor: "#fbbf24",
-    buttonGradient: "linear-gradient(135deg, #b45309 0%, #d97706 50%, #4f46e5 100%)",
-    buttonShadow: "0 8px 24px rgba(180,83,9,0.45)",
-    badgeBg: "rgba(251,191,36,0.15)",
-    badgeColor: "#fbbf24",
-    headingGradient: "linear-gradient(135deg, #fde68a 0%, #fbbf24 40%, #818cf8 100%)",
-    namePill: { bg: "rgba(251,191,36,0.15)", border: "rgba(251,191,36,0.3)", color: "#fde68a" },
-    topAccentLine: "linear-gradient(90deg,transparent,rgba(251,191,36,0.7),rgba(129,140,248,0.7),transparent)",
-    confettiColors: ["#fbbf24","#818cf8","#fde68a","#c7d2fe","#ffffff","#f59e0b"],
-    sparkleColor: "rgba(251,191,36,1)",
-    blobColors: ["rgba(251,191,36,0.18)","rgba(129,140,248,0.14)","rgba(253,230,138,0.10)","rgba(99,102,241,0.12)"],
-    dotColors: ["#fbbf24","#818cf8","#fde68a","#c7d2fe","#ffffff","#f59e0b","#fbbf24","#818cf8"],
+    glassCard: "#ffffff",
+    primaryGlow: "rgba(223,180,0,0.1)",
+    primaryColor: "#333333",
+    secondaryColor: "#ff1502",
+    goldColor: "#dfb400",
+    buttonGradient: "linear-gradient(135deg, #222222 0%, #333333 55%, #dfb400 100%)",
+    buttonShadow: "0 6px 20px rgba(0,0,0,0.22)",
+    badgeBg: "rgba(223,180,0,0.1)",
+    badgeColor: "#333333",
+    headingGradient: "linear-gradient(135deg, #222222 0%, #444444 50%, #dfb400 100%)",
+    namePill: { bg: "rgba(223,180,0,0.08)", border: "rgba(0,0,0,0.15)", color: "#333333" },
+    topAccentLine: "linear-gradient(90deg, transparent, #333333, #dfb400, transparent)",
+    confettiColors: ["#dfb400","#ff1502","#333333","#d37d00","#ff6d02","#00aeba"],
+    sparkleColor: "rgba(223,180,0,0.85)",
+    blobColors: ["rgba(223,180,0,0.08)","rgba(255,21,2,0.06)","rgba(0,0,0,0.05)","rgba(0,174,186,0.05)"],
+    dotColors: ["#dfb400","#ff1502","#333333","#d37d00","#ff6d02","#00aeba","#dfb400","#ff1502"],
     messages: [
       "Happy New Year! As the clock strikes midnight and a new chapter begins, I wish you a year filled with bold adventures, meaningful connections, and all the abundance your heart desires. The best is truly yet to come. 🥂✨",
       "Here's to a brand new year — a blank canvas waiting for your most beautiful story. May this year bring you clarity, courage, and countless reasons to smile. Wishing you health, happiness, and everything wonderful. 🎆🌟",
@@ -265,9 +265,10 @@ const THEMES = [
   },
   {
     id: "happy-holidays",
+    className: "theme-holidays",
     emoji: "🎁",
     label: "Happy Holidays",
-    carouselLabel: "Holiday Greetings Generator",
+    carouselLabel: " Holiday Greeter",
     heading: "Send Warm\nHoliday Greetings",
     subtitle: "Spread warmth and joy with a personalised holiday greeting.",
     namePlaceholder: "Someone special's name… 🎁",
@@ -275,23 +276,22 @@ const THEMES = [
     revealGreeting: (n) => `Happy Holidays, ${n}!`,
     tagBadge: "Holiday Message",
     cardEmoji: "🎁",
-    bg: "radial-gradient(ellipse at 25% 20%, #1a0a05 0%, #0f1020 40%, #0a0d1a 65%, #060810 100%)",
-    glassCard: "rgba(255,255,255,0.08)",
-    primaryGlow: "rgba(249,115,22,0.2)",
-    primaryColor: "#f97316",
-    secondaryColor: "#60a5fa",
-    goldColor: "#fbbf24",
-    buttonGradient: "linear-gradient(135deg, #c2410c 0%, #ea580c 40%, #1d4ed8 100%)",
-    buttonShadow: "0 8px 24px rgba(194,65,12,0.45)",
-    badgeBg: "rgba(249,115,22,0.15)",
-    badgeColor: "#fb923c",
-    headingGradient: "linear-gradient(135deg, #fdba74 0%, #f97316 40%, #60a5fa 100%)",
-    namePill: { bg: "rgba(249,115,22,0.15)", border: "rgba(249,115,22,0.3)", color: "#fdba74" },
-    topAccentLine: "linear-gradient(90deg,transparent,rgba(249,115,22,0.7),rgba(96,165,250,0.7),transparent)",
-    confettiColors: ["#f97316","#60a5fa","#fbbf24","#fb923c","#bae6fd","#fde68a"],
-    sparkleColor: "rgba(251,191,36,0.9)",
-    blobColors: ["rgba(249,115,22,0.16)","rgba(96,165,250,0.14)","rgba(251,191,36,0.10)","rgba(234,88,12,0.10)"],
-    dotColors: ["#f97316","#60a5fa","#fbbf24","#fdba74","#bae6fd","#fb923c","#fbbf24","#60a5fa"],
+    glassCard: "#ffffff",
+    primaryGlow: "rgba(255,109,2,0.1)",
+    primaryColor: "#ff6d02",
+    secondaryColor: "#00aeba",
+    goldColor: "#dfb400",
+    buttonGradient: "linear-gradient(135deg, #ff6d02 0%, #ff8c00 55%, #00aeba 100%)",
+    buttonShadow: "0 6px 20px rgba(255,109,2,0.28)",
+    badgeBg: "rgba(255,109,2,0.08)",
+    badgeColor: "#ff6d02",
+    headingGradient: "linear-gradient(135deg, #ff6d02 0%, #dfb400 50%, #00aeba 100%)",
+    namePill: { bg: "rgba(255,109,2,0.07)", border: "rgba(255,109,2,0.22)", color: "#ff6d02" },
+    topAccentLine: "linear-gradient(90deg, transparent, #ff6d02, #00aeba, transparent)",
+    confettiColors: ["#ff6d02","#00aeba","#dfb400","#ff0259","#ff1502","#0c8745"],
+    sparkleColor: "rgba(223,180,0,0.8)",
+    blobColors: ["rgba(255,109,2,0.09)","rgba(0,174,186,0.07)","rgba(223,180,0,0.06)","rgba(255,2,89,0.05)"],
+    dotColors: ["#ff6d02","#00aeba","#dfb400","#ff0259","#ff1502","#0c8745","#ff6d02","#00aeba"],
     messages: [
       "Wishing you a season filled with cosy moments, warm laughter, and the quiet magic that only this time of year brings. May your holidays be everything you hoped for and your heart feel full of gratitude and joy. Happy Holidays! 🎁✨",
       "As the year draws to a close, I want you to know how much joy you bring to everyone around you. Wishing you the most wonderful holiday season — filled with warmth, togetherness, and all the little things that matter most. 🌟🎁",
@@ -335,6 +335,14 @@ const BLOB_POSITIONS = [
 ];
 
 /* ============================================================
+   SPOTIFY — extract track ID from a share URL
+   ============================================================ */
+function extractTrackId(url) {
+  const match = url.match(/track\/([a-zA-Z0-9]+)/);
+  return match ? match[1] : null;
+}
+
+/* ============================================================
    APP STATE
    ============================================================ */
 const state = {
@@ -343,6 +351,7 @@ const state = {
   name: "",
   photo: null,
   wish: "",
+  spotifyTrackId: null,
   transitioning: false,
 };
 
@@ -399,7 +408,6 @@ function renderFloatingElements(containerId, theme, intense) {
     el.style.width = `${d.size}px`;
     el.style.height = `${d.size}px`;
     el.style.background = color;
-    el.style.boxShadow = `0 0 ${d.size * 2}px ${color}`;
     el.style.animationDuration = `${3 + d.delay}s`;
     el.style.animationDelay = `${-d.delay}s`;
     container.appendChild(el);
@@ -497,9 +505,8 @@ function applyTheme(theme) {
   // Carousel dots
   renderCarouselDots(state.themeIndex, theme);
 
-  // Backgrounds
-  document.getElementById("create-screen").style.background = theme.bg;
-  document.getElementById("reveal-screen").style.background = theme.bg;
+  // Page background via body class
+  document.body.className = theme.className;
 
   // Carousel buttons
   ["prev-btn", "next-btn"].forEach((id) => {
@@ -523,16 +530,9 @@ function applyTheme(theme) {
   document.getElementById("generate-label").textContent = theme.generateLabel;
   refreshGenerateBtn(nameInput.value, theme);
 
-  // Drop zone icon color
-  document.getElementById("dz-icon-wrap").style.background = `${theme.primaryColor}22`;
-  document.getElementById("dz-camera-icon").style.color = theme.primaryColor;
+  // Drop zone preview color
   document.getElementById("preview-uploaded").style.color = theme.primaryColor;
   document.getElementById("preview-img").style.borderColor = `${theme.primaryColor}80`;
-
-  // Glass card backgrounds
-  document.querySelectorAll(".glass-card").forEach((card) => {
-    card.style.background = theme.glassCard;
-  });
 
   // Reveal screen elements
   applyRevealTheme(theme);
@@ -543,13 +543,12 @@ function applyTheme(theme) {
 }
 
 function applyRevealTheme(theme) {
+  // Greeting heading gradient
+  document.getElementById("greeting-heading").style.backgroundImage = theme.headingGradient;
+
   // Avatar glow
   document.getElementById("avatar-glow").style.background =
     `radial-gradient(circle, ${theme.primaryGlow}, transparent 70%)`;
-
-  // Spinning ring gradient
-  document.getElementById("avatar-ring").style.background =
-    `conic-gradient(from 0deg, ${theme.primaryColor}, ${theme.secondaryColor}, ${theme.goldColor}, ${theme.primaryColor})`;
 
   // Avatar circle (fallback bg when no photo)
   if (!state.photo) {
@@ -561,14 +560,7 @@ function applyRevealTheme(theme) {
   badge.style.background = `linear-gradient(135deg, ${theme.goldColor}, ${theme.primaryColor})`;
   badge.textContent = theme.cardEmoji;
 
-  // Greeting heading gradient
-  document.getElementById("greeting-heading").style.backgroundImage = theme.headingGradient;
 
-  // Greeting sub emoji
-  document.getElementById("greeting-sub").textContent = `${theme.emoji} Sending warm wishes to`;
-
-  // Card accent line
-  document.getElementById("card-accent-line").style.background = theme.topAccentLine;
 
   // Card emoji box
   const emojiBox = document.getElementById("card-emoji-box");
@@ -577,20 +569,7 @@ function applyRevealTheme(theme) {
   emojiBox.textContent = theme.cardEmoji;
 
   // Card badge text
-  const badgeText = document.getElementById("card-badge-text");
-  badgeText.style.color = theme.primaryColor;
-  badgeText.textContent = theme.tagBadge;
-
-  // Card heart icon
-  document.getElementById("card-heart-icon").style.color = theme.secondaryColor;
-
-  // Card credit
-  document.getElementById("card-credit").textContent = `Made with love · ${theme.label} Wish Generator`;
-
-  // Primary action button
-  const newWishBtn = document.getElementById("new-wish-btn");
-  newWishBtn.style.background = theme.buttonGradient;
-  newWishBtn.style.boxShadow = theme.buttonShadow;
+  document.getElementById("card-badge-text").textContent = theme.tagBadge;
 }
 
 /* ============================================================
@@ -603,6 +582,8 @@ function updateCarouselLabel(theme) {
   setTimeout(() => {
     document.getElementById("carousel-emoji").textContent = theme.emoji;
     document.getElementById("carousel-text").textContent = theme.carouselLabel;
+    const byEl = document.getElementById("by-relateai");
+    if (byEl) byEl.style.color = theme.primaryColor;
     document.getElementById("carousel-text").style.color = theme.primaryColor;
     label.style.background = `${theme.primaryColor}1a`;
     label.style.borderColor = `${theme.primaryColor}4d`;
@@ -626,9 +607,7 @@ function updateHeading(theme) {
   setTimeout(() => {
     const lines = theme.heading.split("\n");
     document.getElementById("heading-line1").textContent = lines[0] || "";
-    const line2 = document.getElementById("heading-line2");
-    line2.textContent = lines[1] || "";
-    line2.style.backgroundImage = theme.headingGradient;
+    document.getElementById("heading-line2").textContent = lines[1] || "";
     document.getElementById("heading-sub").textContent = theme.subtitle;
     heading.style.opacity = "1";
     heading.style.transform = "translateY(0)";
@@ -642,7 +621,7 @@ function refreshInputBorder(input, theme) {
   const hasValue = input.value.length > 0;
   input.style.border = hasValue
     ? `1.5px solid ${theme.primaryColor}99`
-    : "1.5px solid rgba(255,255,255,0.12)";
+    : "1.5px solid #dddddd";
   input.style.boxShadow = hasValue ? `0 0 0 4px ${theme.primaryColor}22` : "none";
 }
 
@@ -651,12 +630,8 @@ function refreshInputBorder(input, theme) {
    ============================================================ */
 function refreshGenerateBtn(value, theme) {
   const btn = document.getElementById("generate-btn");
-  const active = value.trim().length > 0;
-  btn.disabled = !active;
-  btn.style.background = active ? theme.buttonGradient : "rgba(255,255,255,0.07)";
-  btn.style.color = active ? "#faf5ff" : "rgba(250,245,255,0.25)";
-  btn.style.boxShadow = active ? theme.buttonShadow : "none";
-  btn.style.cursor = active ? "pointer" : "not-allowed";
+  const checkbox = document.getElementById("terms-checkbox");
+  btn.disabled = !(value.trim().length > 0 && checkbox && checkbox.checked);
 }
 
 /* ============================================================
@@ -801,6 +776,17 @@ function showReveal(name, photo, wish) {
       avatarCircle.style.background = theme.buttonGradient;
     }
 
+    // Spotify player
+    const playerWrap = document.getElementById("spotify-player-wrap");
+    const playerContainer = document.getElementById("spotify-player-container");
+    if (state.spotifyTrackId) {
+      playerContainer.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${state.spotifyTrackId}" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+      playerWrap.style.display = "block";
+    } else {
+      playerContainer.innerHTML = "";
+      playerWrap.style.display = "none";
+    }
+
     // Reset reveal animations so they re-run
     resetRevealAnimations();
 
@@ -818,6 +804,10 @@ function showCreate() {
     const theme = THEMES[state.themeIndex];
     const nameInput = document.getElementById("name-input");
     nameInput.value = "";
+    const tc = document.getElementById("terms-checkbox");
+    if (tc) tc.checked = false;
+    document.getElementById("spotify-input").value = "";
+    state.spotifyTrackId = null;
     clearPhoto();
     refreshGenerateBtn("", theme);
     refreshInputBorder(nameInput, theme);
@@ -912,6 +902,12 @@ function init() {
     setTheme((state.themeIndex + 1) % THEMES.length);
   });
 
+  // ---- Terms Checkbox ----
+  const termsCheckbox = document.getElementById("terms-checkbox");
+  termsCheckbox.addEventListener("change", () => {
+    refreshGenerateBtn(document.getElementById("name-input").value, THEMES[state.themeIndex]);
+  });
+
   // ---- Name Input ----
   const nameInput = document.getElementById("name-input");
 
@@ -970,15 +966,15 @@ function init() {
   });
 
   dropZone.addEventListener("dragleave", () => {
-    dropZone.style.borderColor = "rgba(255,255,255,0.18)";
-    dropZone.style.background = "rgba(255,255,255,0.04)";
+    dropZone.style.borderColor = "#cccccc";
+    dropZone.style.background = "#fafafa";
     dropZone.classList.remove("dragging");
   });
 
   dropZone.addEventListener("drop", (e) => {
     e.preventDefault();
-    dropZone.style.borderColor = "rgba(255,255,255,0.18)";
-    dropZone.style.background = "rgba(255,255,255,0.04)";
+    dropZone.style.borderColor = "#cccccc";
+    dropZone.style.background = "#fafafa";
     dropZone.classList.remove("dragging");
     handleFile(e.dataTransfer.files[0]);
   });
@@ -1006,6 +1002,9 @@ function init() {
     genBtn.disabled = true;
     genIcon.className = "fa-solid fa-spinner fa-spin";
     genLabel.textContent = "Generating…";
+
+    const spotifyInput = document.getElementById("spotify-input");
+    state.spotifyTrackId = extractTrackId(spotifyInput.value.trim()) || null;
 
     showReveal(name, state.photo, pickWish());
   });
