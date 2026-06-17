@@ -3,17 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Birthday Wish Generator App</title>
+  <title>Greetings Generator App</title>
   <meta name="description" content="Create personalized, elegant birthday and occasion wishes in seconds. Free, no sign-up required." />
   <meta name="theme-color" content="#0d1117" />
-  <!-- Google Fonts: Playfair Display (headings) + Nunito (body) -->
+  <!-- Preconnect to external CDNs so connections start immediately -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- Font Awesome 6 Free — professional icon library -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <!-- App styles -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Instantly hide create screen if this is a shared link — runs before first paint -->
+  <script>if(location.search.includes('id='))document.documentElement.classList.add('is-shared');</script>
+  <!-- Scripts — defer so they download in parallel without blocking render -->
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script defer src="firebase.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
   <div id="app">
@@ -101,6 +112,24 @@
             <input type="file" id="file-input" accept="image/*" aria-hidden="true" tabindex="-1" />
           </div>
 
+          <!-- Sender name -->
+          <div class="form-group">
+            <label class="field-label" for="sender-input">
+              Your Name
+              <span class="optional-tag">(So they know who it's from)</span>
+            </label>
+            <input
+              type="text"
+              class="name-input"
+              id="sender-input"
+              maxlength="40"
+              placeholder="Enter your name…"
+              autocomplete="off"
+              spellcheck="false"
+              autocapitalize="words"
+            />
+          </div>
+
           <!-- Spotify link -->
           <div class="form-group">
             <label class="field-label" for="spotify-input">
@@ -122,7 +151,7 @@
           <!-- Terms checkbox -->
           <label class="terms-checkbox-wrap">
             <input type="checkbox" id="terms-checkbox" />
-            <span class="terms-checkbox-text">I agree to the Terms &amp; Conditions and Privacy Policy.</span>
+            <span class="terms-checkbox-text">I agree to the <a href="privacy.html" target="_blank" class="terms-link">Terms &amp; Conditions and Privacy Policy</a>.</span>
           </label>
 
           <!-- Generate Button -->
@@ -163,11 +192,13 @@
             <p class="card-badge-text" id="card-badge-text"></p>
           </div>
           <p class="wish-text" id="wish-text"></p>
-            <div class="card-footer-row">
-
-          </div>
+            <div class="card-footer-row"></div>
         </div>
 
+            <!-- Reserved AdSense area -->
+            <div class="sponsor-zone" id="sponsor-zone">
+                Sponsored Message
+            </div>
         <!-- Spotify Player -->
         <div class="spotify-player-wrap" id="spotify-player-wrap" style="display:none">
           <p class="spotify-player-label">
@@ -177,10 +208,6 @@
           <div id="spotify-player-container"></div>
         </div>
 
-                    <!-- Reserved AdSense area -->
-            <div class="ad-space">
-                <span class="ad-space-label">Advertisement</span>
-            </div>
 
         <!-- Action Buttons -->
         <div class="reveal-actions">
@@ -203,9 +230,21 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </div><!-- /#app -->
 
-  <!-- canvas-confetti 1.9.4 — celebration particle effects -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
-  <!-- App logic -->
-  <script src="script.js"></script>
+<!-- Shared-link loading overlay -->
+<div class="shared-loader" id="shared-loader">
+  <div class="loader-box">
+    <span class="loader-icon" id="loader-icon">🎁</span>
+    <h2 class="loader-heading">Something special<br>is loading for you</h2>
+    <div class="l-spinner">
+      <div class="l-bar"></div><div class="l-bar"></div><div class="l-bar"></div>
+      <div class="l-bar"></div><div class="l-bar"></div><div class="l-bar"></div>
+      <div class="l-bar"></div><div class="l-bar"></div><div class="l-bar"></div>
+      <div class="l-bar"></div><div class="l-bar"></div><div class="l-bar"></div>
+    </div>
+    <p class="loader-sub" id="loader-sub">Hold on, magic incoming ✨</p>
+  </div>
+</div>
+
+
 </body>
 </html>
