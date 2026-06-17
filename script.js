@@ -1,1085 +1,1224 @@
 /* ============================================================
-   THEMES — 8 occasions, brand palette, light-mode visuals
+   BRAND PALETTE & CUSTOM PROPERTIES
    ============================================================ */
-const THEMES = [
-  {
-    id: "birthday",
-    className: "theme-birthday",
-    emoji: "🎂",
-    label: "Birthday",
-    carouselLabel: " Birthday Wish Generator",
-    heading: "Create a Personalized\nBirthday Wish",
-    subtitle: "Create a heartfelt message your birthday star will treasure.",
-    namePlaceholder: "Who's the birthday star? 🎂",
-    generateLabel: "Generate Wish",
-    revealGreeting: (n) => `Happy Birthday, ${n}!`,
-    tagBadge: "Birthday Message",
-    cardEmoji: "🎂",
-    glassCard: "#ffffff",
-    primaryGlow: "rgba(255,21,2,0.1)",
-    primaryColor: "#ff1502",
-    secondaryColor: "#ff6d02",
-    goldColor: "#dfb400",
-    buttonGradient: "linear-gradient(135deg, #ff1502 0%, #ff4002 55%, #ff6d02 100%)",
-    buttonShadow: "0 6px 20px rgba(255,21,2,0.28)",
-    badgeBg: "rgba(255,21,2,0.08)",
-    badgeColor: "#ff1502",
-    headingGradient: "linear-gradient(135deg, #ff1502 0%, #ff4002 50%, #ff6d02 100%)",
-    namePill: { bg: "rgba(255,21,2,0.07)", border: "rgba(255,21,2,0.22)", color: "#ff1502" },
-    topAccentLine: "linear-gradient(90deg, transparent, #ff1502, #ff6d02, transparent)",
-    confettiColors: ["#ff1502","#ff6d02","#ff4002","#ff0259","#dfb400","#00aeba"],
-    sparkleColor: "rgba(223,180,0,0.75)",
-    blobColors: ["rgba(255,21,2,0.09)","rgba(255,109,2,0.07)","rgba(0,174,186,0.06)","rgba(223,180,0,0.06)"],
-    dotColors: ["#ff1502","#ff6d02","#ff4002","#ff0259","#dfb400","#00aeba","#ff1502","#ff4002"],
-    messages: [
-      "May your birthday be as luminous as your spirit — overflowing with laughter, love, and every beautiful thing you deserve. Here's to a year where all your boldest dreams become your reality. You are beyond cherished. 🎂✨",
-      "Another year of being absolutely magnetic! Your light makes the whole world brighter. Wishing you a birthday filled with magic moments, genuine connections, and the kind of joy that makes time slow down. 💫🌸",
-      "To the most iconic person in the room — happy birthday! May this year bring you clarity, confidence, and celebrations big and small. The world is richer simply because you're in it. Keep shining exactly as you are. 🎉",
-      "On your special day, may every small thing feel extraordinary — your morning coffee, the songs on your playlist, the people who love you most. You radiate warmth wherever you go. Wishing you a year as wonderful as you are. 🌟🎈",
-      "Happy birthday! Wishing you a year that feels like your favourite playlist on a golden afternoon — full of good vibes, the right people, and moments you'll want to replay forever. You are endlessly loved. 🎶💛",
-      "Today the universe is celebrating YOU, and honestly, same. You deserve every gift, every laugh, every sweet moment this birthday brings. May this next chapter be your most beautiful one yet. 🦋✨",
-      "Wishing you a birthday as radiant and extraordinary as you are. May this year open doors you didn't even know existed, bring you closer to your dreams, and surround you with all the love you deserve. 🌈🎂",
-      "Here's to you — the one who makes ordinary days feel like adventures. May this year bring abundance, peace, unexpected joy, and all the things that make your soul feel alive. You are so very loved. 🌙⭐",
-    ],
-  },
-  {
-    id: "christmas",
-    className: "theme-christmas",
-    emoji: "🎄",
-    label: "Christmas",
-    carouselLabel: " Christmas Wish Generator",
-    heading: "Send a Magical\nChristmas Greeting",
-    subtitle: "Send warm seasonal wishes to someone on your nice list.",
-    namePlaceholder: "Who's on the nice list? 🎅",
-    generateLabel: "Generate Greeting",
-    revealGreeting: (n) => `Merry Christmas, ${n}!`,
-    tagBadge: "Christmas Message",
-    cardEmoji: "🎄",
-    glassCard: "#ffffff",
-    primaryGlow: "rgba(12,135,69,0.1)",
-    primaryColor: "#0c8745",
-    secondaryColor: "#d00416",
-    goldColor: "#dfb400",
-    buttonGradient: "linear-gradient(135deg, #0c8745 0%, #0a9e53 55%, #d00416 100%)",
-    buttonShadow: "0 6px 20px rgba(12,135,69,0.28)",
-    badgeBg: "rgba(12,135,69,0.08)",
-    badgeColor: "#0c8745",
-    headingGradient: "linear-gradient(135deg, #0c8745 0%, #dfb400 50%, #d00416 100%)",
-    namePill: { bg: "rgba(12,135,69,0.07)", border: "rgba(12,135,69,0.22)", color: "#0c8745" },
-    topAccentLine: "linear-gradient(90deg, transparent, #0c8745, #d00416, transparent)",
-    confettiColors: ["#0c8745","#d00416","#dfb400","#ff1502","#00aeba","#ff6d02"],
-    sparkleColor: "rgba(223,180,0,0.8)",
-    blobColors: ["rgba(12,135,69,0.09)","rgba(208,4,22,0.07)","rgba(223,180,0,0.06)","rgba(0,174,186,0.05)"],
-    dotColors: ["#0c8745","#d00416","#dfb400","#00aeba","#ff1502","#0c8745","#d00416","#dfb400"],
-    messages: [
-      "May your Christmas be as warm and bright as the lights on the tree — filled with laughter around the table, cozy moments by the fire, and the joy of being loved. Wishing you magic in every corner of this season. 🎄✨",
-      "Season's warmest greetings! May this Christmas wrap you in all the peace, joy, and love you deserve. Here's to twinkling lights, familiar songs, and moments that make your heart feel full. 🎅🌟",
-      "Wishing you a Christmas that sparkles from morning to midnight — with festive surprises, cherished company, and memories that will last long after the decorations come down. You deserve every bit of this magic. 🎁❄️",
-      "May the spirit of Christmas fill your home with warmth, your heart with gratitude, and your days with all the love and laughter the season brings. Sending you the cosiest of holiday wishes! ☃️🕯️",
-      "Christmas is a little more special because of people like you. Wishing you a season full of wonder, rest, and togetherness — and a new year shining with everything you hope for. Merry Christmas! 🦌💛",
-    ],
-  },
-  {
-    id: "easter",
-    className: "theme-easter",
-    emoji: "🐣",
-    label: "Easter",
-    carouselLabel: " Easter Wish Generator",
-    heading: "Share a Joyful\nEaster Greeting",
-    subtitle: "Share joyful Easter blessings with someone you love.",
-    namePlaceholder: "Who are you blessing? 🌸",
-    generateLabel: "Generate Greeting",
-    revealGreeting: (n) => `Happy Easter, ${n}!`,
-    tagBadge: "Easter Message",
-    cardEmoji: "🐣",
-    glassCard: "#ffffff",
-    primaryGlow: "rgba(255,109,2,0.1)",
-    primaryColor: "#ff6d02",
-    secondaryColor: "#00aeba",
-    goldColor: "#dfb400",
-    buttonGradient: "linear-gradient(135deg, #ff6d02 0%, #ff8c00 55%, #00aeba 100%)",
-    buttonShadow: "0 6px 20px rgba(255,109,2,0.28)",
-    badgeBg: "rgba(255,109,2,0.08)",
-    badgeColor: "#ff6d02",
-    headingGradient: "linear-gradient(135deg, #ff6d02 0%, #dfb400 50%, #00aeba 100%)",
-    namePill: { bg: "rgba(255,109,2,0.07)", border: "rgba(255,109,2,0.22)", color: "#ff6d02" },
-    topAccentLine: "linear-gradient(90deg, transparent, #ff6d02, #00aeba, transparent)",
-    confettiColors: ["#ff6d02","#00aeba","#dfb400","#ff0259","#ff1502","#0c8745"],
-    sparkleColor: "rgba(223,180,0,0.8)",
-    blobColors: ["rgba(255,109,2,0.09)","rgba(0,174,186,0.07)","rgba(223,180,0,0.06)","rgba(255,2,89,0.05)"],
-    dotColors: ["#ff6d02","#00aeba","#dfb400","#ff0259","#ff1502","#0c8745","#ff6d02","#00aeba"],
-    messages: [
-      "Wishing you an Easter overflowing with colour, hope, and new beginnings. May this season remind you of all the beauty that surrounds you and the wonderful things still ahead. You are a true gift to this world. 🌸🐣",
-      "Happy Easter! May every egg you find, every smile you share, and every moment of this beautiful season fill your heart with the purest joy. Here's to fresh starts, blooming friendships, and all things wonderful. 🌷✨",
-      "Spring is here, and so is the perfect moment to celebrate YOU! Wishing you an Easter as vibrant and full of life as you are. May this season plant seeds of joy that bloom all year long. 🌼💛",
-      "May this Easter bring you renewed energy, blossoming hopes, and the warmth of everyone who loves you. You deserve a season that feels as bright and full of promise as you make every room you enter. 🐰🌸",
-    ],
-  },
-  {
-    id: "mothers-day",
-    className: "theme-mothers",
-    emoji: "💐",
-    label: "Mother's Day",
-    carouselLabel: " Mother's Day Wish generator",
-    heading: "Celebrate the\nMost Amazing Mum",
-    subtitle: "Tell Mum how much she means in a few beautiful words.",
-    namePlaceholder: "Her beautiful name… 💐",
-    generateLabel: "Generate Message",
-    revealGreeting: (n) => `Happy Mother's Day, ${n}!`,
-    tagBadge: "Mother's Day Message",
-    cardEmoji: "💐",
-    glassCard: "#ffffff",
-    primaryGlow: "rgba(255,2,89,0.1)",
-    primaryColor: "#ff0259",
-    secondaryColor: "#ff6d02",
-    goldColor: "#dfb400",
-    buttonGradient: "linear-gradient(135deg, #ff0259 0%, #ff1562 55%, #ff6d02 100%)",
-    buttonShadow: "0 6px 20px rgba(255,2,89,0.28)",
-    badgeBg: "rgba(255,2,89,0.08)",
-    badgeColor: "#ff0259",
-    headingGradient: "linear-gradient(135deg, #ff0259 0%, #ff4002 50%, #dfb400 100%)",
-    namePill: { bg: "rgba(255,2,89,0.07)", border: "rgba(255,2,89,0.22)", color: "#ff0259" },
-    topAccentLine: "linear-gradient(90deg, transparent, #ff0259, #ff6d02, transparent)",
-    confettiColors: ["#ff0259","#ff6d02","#ff4002","#dfb400","#ff1502","#00aeba"],
-    sparkleColor: "rgba(223,180,0,0.8)",
-    blobColors: ["rgba(255,2,89,0.09)","rgba(255,109,2,0.07)","rgba(223,180,0,0.06)","rgba(0,174,186,0.05)"],
-    dotColors: ["#ff0259","#ff6d02","#ff4002","#dfb400","#ff1502","#00aeba","#ff0259","#ff4002"],
-    messages: [
-      "To the woman who made everything possible — you are the definition of unconditional love, quiet strength, and boundless grace. Thank you for being our anchor, our cheerleader, and our greatest gift. Happy Mother's Day, with all the love in the world. 💐✨",
-      "There are no words powerful enough to capture everything you mean to us — but on this special day, we want you to feel every ounce of the love you have always given so freely. You deserve the world, Mum. 🌸💛",
-      "Happy Mother's Day to the most extraordinary woman we know. Your warmth, wisdom, and unwavering love are the foundation everything is built on. Today is yours — let yourself be celebrated the way you celebrate everyone else. 💐🌹",
-      "You taught us what it means to love without limits, to laugh through the hard days, and to always show up for each other. Thank you for being exactly who you are. Today and every day, you are endlessly adored. 🌸💕",
-      "Behind every beautiful thing in our lives is your love, care, and sacrifice. You make ordinary moments extraordinary just by being in them. Happy Mother's Day — you are our entire heart. 💐🌷",
-    ],
-  },
-  {
-    id: "fathers-day",
-    className: "theme-fathers",
-    emoji: "👔",
-    label: "Father's Day",
-    carouselLabel: " Father's Day Wish generator",
-    heading: "Honour the Most\nIncredible Dad",
-    subtitle: "Honour Dad with words that truly capture how much he means.",
-    namePlaceholder: "His great name… 👔",
-    generateLabel: "Generate Message",
-    revealGreeting: (n) => `Happy Father's Day, ${n}!`,
-    tagBadge: "Father's Day Message",
-    cardEmoji: "👔",
-    glassCard: "#ffffff",
-    primaryGlow: "rgba(0,174,186,0.1)",
-    primaryColor: "#333333",
-    secondaryColor: "#00aeba",
-    goldColor: "#d37d00",
-    buttonGradient: "linear-gradient(135deg, #222222 0%, #333333 55%, #00aeba 100%)",
-    buttonShadow: "0 6px 20px rgba(0,0,0,0.22)",
-    badgeBg: "rgba(0,0,0,0.06)",
-    badgeColor: "#333333",
-    headingGradient: "linear-gradient(135deg, #222222 0%, #444444 50%, #00aeba 100%)",
-    namePill: { bg: "rgba(0,0,0,0.06)", border: "rgba(0,0,0,0.18)", color: "#333333" },
-    topAccentLine: "linear-gradient(90deg, transparent, #333333, #00aeba, transparent)",
-    confettiColors: ["#333333","#00aeba","#d37d00","#dfb400","#555555","#0c8745"],
-    sparkleColor: "rgba(0,174,186,0.7)",
-    blobColors: ["rgba(0,0,0,0.05)","rgba(0,174,186,0.07)","rgba(211,125,0,0.06)","rgba(0,0,0,0.04)"],
-    dotColors: ["#333333","#00aeba","#d37d00","#555555","#0c8745","#00aeba","#dfb400","#333333"],
-    messages: [
-      "To the man who showed us what strength, patience, and love really look like — thank you for every sacrifice made quietly, every lesson taught by example, and every moment you showed up. Happy Father's Day. You are our hero, always. 👔✨",
-      "Dad, your steady presence has been our greatest comfort. You lead with wisdom, love with courage, and always make us feel safe just by being there. Today we celebrate everything you are. We are beyond grateful for you. 🌟💛",
-      "Happy Father's Day to a man who defines what it means to be dependable, kind, and quietly brilliant. You've given us more than you know — and today we want you to feel every bit of the admiration and love we carry for you. 👔🏅",
-      "Some people make life better just by being in it — you are one of those rare people, Dad. Thank you for your patience, your guidance, and the moments that became the best memories of our lives. Happy Father's Day. 🌟",
-      "Behind every great family is a dad who gave everything without counting the cost. That's you. Today is your day to rest, to be celebrated, and to know how deeply and profoundly loved you truly are. 👔✨",
-    ],
-  },
-  {
-    id: "eid",
-    className: "theme-eid",
-    emoji: "☪️",
-    label: "Eid",
-    carouselLabel: " Eid Wish Generator",
-    heading: "Share the Joy of\nEid with Someone Special",
-    subtitle: "Send warm Eid blessings to someone you care about.",
-    namePlaceholder: "Their name… ☪️",
-    generateLabel: "Send Eid Greetings",
-    revealGreeting: (n) => `Eid Mubarak, ${n}!`,
-    tagBadge: "Eid Mubarak Message",
-    cardEmoji: "🌙",
-    glassCard: "#ffffff",
-    primaryGlow: "rgba(12,135,69,0.1)",
-    primaryColor: "#0c8745",
-    secondaryColor: "#dfb400",
-    goldColor: "#dfb400",
-    buttonGradient: "linear-gradient(135deg, #0c8745 0%, #0a9e53 55%, #dfb400 100%)",
-    buttonShadow: "0 6px 20px rgba(12,135,69,0.28)",
-    badgeBg: "rgba(12,135,69,0.08)",
-    badgeColor: "#0c8745",
-    headingGradient: "linear-gradient(135deg, #0c8745 0%, #0a9e53 50%, #dfb400 100%)",
-    namePill: { bg: "rgba(12,135,69,0.07)", border: "rgba(12,135,69,0.22)", color: "#0c8745" },
-    topAccentLine: "linear-gradient(90deg, transparent, #0c8745, #dfb400, transparent)",
-    confettiColors: ["#0c8745","#dfb400","#00aeba","#d37d00","#ff6d02","#0c8745"],
-    sparkleColor: "rgba(223,180,0,0.85)",
-    blobColors: ["rgba(12,135,69,0.09)","rgba(223,180,0,0.08)","rgba(0,174,186,0.06)","rgba(12,135,69,0.05)"],
-    dotColors: ["#0c8745","#dfb400","#00aeba","#d37d00","#0c8745","#dfb400","#00aeba","#0c8745"],
-    messages: [
-      "Eid Mubarak! May this blessed occasion fill your heart with peace, your home with joy, and your life with the warmth of all those you love. Taqabbalallahu minna wa minkum — may Allah accept from us and from you. 🌙✨",
-      "On this beautiful day of celebration and gratitude, I send you my warmest wishes. May your Eid be as radiant as the crescent moon, as sweet as the finest dates, and filled with all the blessings your heart can hold. ☪️🌟",
-      "Wishing you an Eid filled with divine blessings, cherished family moments, and the deep contentment that comes from faith and gratitude. May Allah's mercy and grace surround you always. Eid Mubarak, dear friend! 🌙💛",
-      "May the spirit of Eid bring you renewed hope, abundant joy, and togetherness with all who matter most. Sending you prayers of peace and happiness on this sacred and joyful occasion. Eid Mubarak! 🕌✨",
-      "Eid Mubarak! May your prayers be answered, your heart be at peace, and this celebration remind you of all the beauty and blessings that surround you. You are thought of with the warmest of wishes today. 🌙🌟",
-    ],
-  },
-  {
-    id: "new-year",
-    className: "theme-newyear",
-    emoji: "🎆",
-    label: "New Year",
-    carouselLabel: " New Year Wish Generator",
-    heading: "Ring in the New Year\nwith a Beautiful Wish",
-    subtitle: "Start the new year right with a heartfelt wish for someone you love.",
-    namePlaceholder: "Who's stepping into the new year? 🥂",
-    generateLabel: "Generate Wish",
-    revealGreeting: (n) => `Happy New Year, ${n}!`,
-    tagBadge: "New Year Message",
-    cardEmoji: "🥂",
-    glassCard: "#ffffff",
-    primaryGlow: "rgba(223,180,0,0.1)",
-    primaryColor: "#333333",
-    secondaryColor: "#ff1502",
-    goldColor: "#dfb400",
-    buttonGradient: "linear-gradient(135deg, #222222 0%, #333333 55%, #dfb400 100%)",
-    buttonShadow: "0 6px 20px rgba(0,0,0,0.22)",
-    badgeBg: "rgba(223,180,0,0.1)",
-    badgeColor: "#333333",
-    headingGradient: "linear-gradient(135deg, #222222 0%, #444444 50%, #dfb400 100%)",
-    namePill: { bg: "rgba(223,180,0,0.08)", border: "rgba(0,0,0,0.15)", color: "#333333" },
-    topAccentLine: "linear-gradient(90deg, transparent, #333333, #dfb400, transparent)",
-    confettiColors: ["#dfb400","#ff1502","#333333","#d37d00","#ff6d02","#00aeba"],
-    sparkleColor: "rgba(223,180,0,0.85)",
-    blobColors: ["rgba(223,180,0,0.08)","rgba(255,21,2,0.06)","rgba(0,0,0,0.05)","rgba(0,174,186,0.05)"],
-    dotColors: ["#dfb400","#ff1502","#333333","#d37d00","#ff6d02","#00aeba","#dfb400","#ff1502"],
-    messages: [
-      "Happy New Year! As the clock strikes midnight and a new chapter begins, I wish you a year filled with bold adventures, meaningful connections, and all the abundance your heart desires. The best is truly yet to come. 🥂✨",
-      "Here's to a brand new year — a blank canvas waiting for your most beautiful story. May this year bring you clarity, courage, and countless reasons to smile. Wishing you health, happiness, and everything wonderful. 🎆🌟",
-      "As we step into the new year together, I'm grateful for everything you bring to this world. May this year exceed every expectation, surprise you in the most beautiful ways, and feel like the fresh start you've been waiting for. Happy New Year! 🥂💛",
-      "New year, same extraordinary you — but with new opportunities, new possibilities, and a whole world of moments waiting to be lived. Wishing you a year as incredible as you are. Let's make it one for the books. 🎇🌙",
-      "May the new year wrap you in hope, fill your path with light, and bring you closer to everything you've been working toward. You deserve a year that matches the size of your dreams. Happy New Year! 🎆✨",
-    ],
-  },
-  {
-    id: "happy-holidays",
-    className: "theme-holidays",
-    emoji: "🎁",
-    label: "Happy Holidays",
-    carouselLabel: " Holiday Wish Generator",
-    heading: "Send Warm\nHoliday Greetings",
-    subtitle: "Spread warmth and joy with a personalised holiday greeting.",
-    namePlaceholder: "Someone special's name… 🎁",
-    generateLabel: "Generate Greeting",
-    revealGreeting: (n) => `Happy Holidays, ${n}!`,
-    tagBadge: "Holiday Message",
-    cardEmoji: "🎁",
-    glassCard: "#ffffff",
-    primaryGlow: "rgba(255,109,2,0.1)",
-    primaryColor: "#ff6d02",
-    secondaryColor: "#00aeba",
-    goldColor: "#dfb400",
-    buttonGradient: "linear-gradient(135deg, #ff6d02 0%, #ff8c00 55%, #00aeba 100%)",
-    buttonShadow: "0 6px 20px rgba(255,109,2,0.28)",
-    badgeBg: "rgba(255,109,2,0.08)",
-    badgeColor: "#ff6d02",
-    headingGradient: "linear-gradient(135deg, #ff6d02 0%, #dfb400 50%, #00aeba 100%)",
-    namePill: { bg: "rgba(255,109,2,0.07)", border: "rgba(255,109,2,0.22)", color: "#ff6d02" },
-    topAccentLine: "linear-gradient(90deg, transparent, #ff6d02, #00aeba, transparent)",
-    confettiColors: ["#ff6d02","#00aeba","#dfb400","#ff0259","#ff1502","#0c8745"],
-    sparkleColor: "rgba(223,180,0,0.8)",
-    blobColors: ["rgba(255,109,2,0.09)","rgba(0,174,186,0.07)","rgba(223,180,0,0.06)","rgba(255,2,89,0.05)"],
-    dotColors: ["#ff6d02","#00aeba","#dfb400","#ff0259","#ff1502","#0c8745","#ff6d02","#00aeba"],
-    messages: [
-      "Wishing you a season filled with cosy moments, warm laughter, and the quiet magic that only this time of year brings. May your holidays be everything you hoped for and your heart feel full of gratitude and joy. Happy Holidays! 🎁✨",
-      "As the year draws to a close, I want you to know how much joy you bring to everyone around you. Wishing you the most wonderful holiday season — filled with warmth, togetherness, and all the little things that matter most. 🌟🎁",
-      "Happy Holidays! May your season be wrapped in warmth, your days be merry and bright, and your home filled with the sounds of laughter and love. Here's to celebrating the beauty of the season with everyone you hold dear. ❄️🕯️",
-      "Sending you the warmest wishes this holiday season — for rest, for joy, for connection, and for all the magic that lives in this special time of year. You deserve every bit of light and happiness coming your way. 🎁💛",
-      "Whatever this season means to you, may it bring you peace, joy, and the presence of the people who make life worth celebrating. Happy Holidays — you are so very loved and appreciated. 🌟🎁",
-    ],
-  },
-];
+:root {
+  --brand-red:      #ff1502;
+  --brand-orange:   #ff6d02;
+  --brand-coral:    #ff4002;
+  --brand-pink:     #ff0259;
+  --brand-darkred:  #d00416;
+  --brand-gold:     #dfb400;
+  --brand-gold-dark:#d37d00;
+  --brand-teal:     #00aeba;
+  --brand-green:    #0c8745;
 
-/* ============================================================
-   FLOATING ELEMENT POSITIONS (from FloatingElements.tsx)
-   ============================================================ */
-const SPARKLE_POSITIONS = [
-  { x: "8%",  y: "12%", size: 16, delay: 0,   dur: 3.2 },
-  { x: "88%", y: "8%",  size: 12, delay: 0.8, dur: 2.8 },
-  { x: "5%",  y: "55%", size: 20, delay: 1.4, dur: 3.6 },
-  { x: "92%", y: "45%", size: 14, delay: 0.3, dur: 2.5 },
-  { x: "15%", y: "85%", size: 10, delay: 1.8, dur: 3.0 },
-  { x: "80%", y: "78%", size: 18, delay: 0.6, dur: 3.4 },
-  { x: "45%", y: "4%",  size:  8, delay: 2.0, dur: 2.6 },
-  { x: "72%", y: "22%", size: 22, delay: 1.1, dur: 3.8 },
-];
+  /* Default theme vars — overridden per theme body class */
+  --page-bg:       #f3f3f3;
+  --card-bg:       #ffffff;
+  --card-border:   #e9e9e9;
+  --primary:       #ff1502;
+  --primary-hover: #d00416;
+  --secondary:     #ff6d02;
+  --accent:        #00aeba;
 
-const DOT_POSITIONS = [
-  { x: "12%", y: "20%", size: 8,  delay: 0.2 },
-  { x: "85%", y: "15%", size: 6,  delay: 1.0 },
-  { x: "20%", y: "70%", size: 10, delay: 0.5 },
-  { x: "75%", y: "65%", size: 7,  delay: 1.5 },
-  { x: "60%", y: "88%", size: 9,  delay: 0.8 },
-  { x: "35%", y: "92%", size: 6,  delay: 1.2 },
-  { x: "90%", y: "55%", size: 11, delay: 0.4 },
-  { x: "3%",  y: "38%", size: 8,  delay: 1.7 },
-];
-
-const BLOB_POSITIONS = [
-  { cx: "15%", cy: "20%", r: "120px", idx: 0 },
-  { cx: "85%", cy: "25%", r: "100px", idx: 1 },
-  { cx: "10%", cy: "75%", r:  "90px", idx: 2 },
-  { cx: "82%", cy: "72%", r: "130px", idx: 3 },
-];
-
-/* ============================================================
-   SPOTIFY — extract track ID from a share URL
-   ============================================================ */
-function extractTrackId(url) {
-  const match = url.match(/track\/([a-zA-Z0-9]+)/);
-  return match ? match[1] : null;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:    'Nunito', system-ui, -apple-system, sans-serif;
+  --ease-spring:  cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ============================================================
-   APP STATE
+   THEME BODY CLASSES — set by JS on <body>
    ============================================================ */
-const state = {
-  themeIndex: 0,
-  screen: "create",
-  name: "",
-  photo: null,
-  wish: "",
-  spotifyTrackId: null,
-  transitioning: false,
-};
-
-/* ============================================================
-   SPARKLE SVG (matches FloatingElements.tsx SparkleIcon)
-   ============================================================ */
-function sparkleSVG(size, color) {
-  return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M12 2L13.5 9.5L21 11L13.5 12.5L12 20L10.5 12.5L3 11L10.5 9.5L12 2Z" fill="${color}"/>
-  </svg>`;
+.theme-birthday {
+  --page-bg:       #fff8f6;
+  --card-bg:       #ffffff;
+  --card-border:   #f0ebe9;
+  --primary:       #ff1502;
+  --primary-hover: #d00416;
+  --secondary:     #ff6d02;
+  --accent:        #00aeba;
+  --floating1:     #ff150220;
+  --floating2:     #ff025920;
+  --floating3:     #dfb40020;
+}
+.theme-christmas {
+  --page-bg:       #f7faf7;
+  --card-bg:       #ffffff;
+  --card-border:   #e8f0e8;
+  --primary:       #0c8745;
+  --primary-hover: #066637;
+  --secondary:     #d00416;
+  --accent:        #dfb400;
+  --floating1:     #0c874520;
+  --floating2:     #d0041620;
+  --floating3:     #dfb40020;
+}
+.theme-easter {
+  --page-bg:       #faf8f4;
+  --card-bg:       #ffffff;
+  --card-border:   #ede8e0;
+  --primary:       #ff6d02;
+  --primary-hover: #d37d00;
+  --secondary:     #00aeba;
+  --accent:        #ff0259;
+  --floating1:     #ff6d0220;
+  --floating2:     #00aeba20;
+  --floating3:     #ff025920;
+}
+.theme-mothers {
+  --page-bg:       #fff8fa;
+  --card-bg:       #ffffff;
+  --card-border:   #f0e8ec;
+  --primary:       #ff0259;
+  --primary-hover: #d00416;
+  --secondary:     #ff6d02;
+  --accent:        #dfb400;
+  --floating1:     #ff025920;
+  --floating2:     #ff6d0220;
+  --floating3:     #dfb40020;
+}
+.theme-fathers {
+  --page-bg:       #f6f8f9;
+  --card-bg:       #ffffff;
+  --card-border:   #e4eaec;
+  --primary:       #333333;
+  --primary-hover: #111111;
+  --secondary:     #00aeba;
+  --accent:        #d37d00;
+  --floating1:     #00aeba20;
+  --floating2:     #d37d0020;
+  --floating3:     #33333315;
+}
+.theme-eid {
+  --page-bg:       #f7faf8;
+  --card-bg:       #ffffff;
+  --card-border:   #e4ede8;
+  --primary:       #0c8745;
+  --primary-hover: #086838;
+  --secondary:     #dfb400;
+  --accent:        #00aeba;
+  --floating1:     #0c874520;
+  --floating2:     #dfb40020;
+  --floating3:     #00aeba20;
+}
+.theme-newyear {
+  --page-bg:       #fafafa;
+  --card-bg:       #ffffff;
+  --card-border:   #e8e8e8;
+  --primary:       #333333;
+  --primary-hover: #111111;
+  --secondary:     #ff1502;
+  --accent:        #dfb400;
+  --floating1:     #dfb40020;
+  --floating2:     #ff150220;
+  --floating3:     #00aeba18;
+}
+.theme-holidays {
+  --page-bg:       #f8f8f6;
+  --card-bg:       #ffffff;
+  --card-border:   #edeae4;
+  --primary:       #ff6d02;
+  --primary-hover: #d37d00;
+  --secondary:     #00aeba;
+  --accent:        #ff0259;
+  --floating1:     #ff6d0220;
+  --floating2:     #00aeba20;
+  --floating3:     #ff025920;
 }
 
 /* ============================================================
-   RENDER FLOATING ELEMENTS
+   RESET
    ============================================================ */
-function renderFloatingElements(containerId, theme, intense) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = "";
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  // Glowing blobs
-  BLOB_POSITIONS.forEach((b) => {
-    const el = document.createElement("div");
-    el.className = "float-blob";
-    const color = theme.blobColors[b.idx] || theme.blobColors[0];
-    el.style.left = b.cx;
-    el.style.top = b.cy;
-    el.style.width = b.r;
-    el.style.height = b.r;
-    el.style.background = `radial-gradient(circle, ${color}, transparent 70%)`;
-    el.style.animationDuration = `${5 + b.idx * 0.7}s`;
-    el.style.animationDelay = `${-(b.idx * 0.5)}s`;
-    container.appendChild(el);
-  });
+html, body {
+  height: 100%;
+  scrollbar-width: none;
+}
 
-  // Sparkle stars
-  SPARKLE_POSITIONS.forEach((s) => {
-    const el = document.createElement("div");
-    el.className = "float-sparkle";
-    el.style.left = s.x;
-    el.style.top = s.y;
-    el.style.animationDuration = `${s.dur}s`;
-    el.style.animationDelay = `${-s.delay}s`;
-    el.innerHTML = sparkleSVG(s.size, theme.sparkleColor);
-    container.appendChild(el);
-  });
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { display: none; }
 
-  // Confetti dots
-  DOT_POSITIONS.forEach((d, i) => {
-    const color = theme.dotColors[i % theme.dotColors.length];
-    const el = document.createElement("div");
-    el.className = "float-dot" + (intense ? " intense" : "");
-    el.style.left = d.x;
-    el.style.top = d.y;
-    el.style.width = `${d.size}px`;
-    el.style.height = `${d.size}px`;
-    el.style.background = color;
-    el.style.animationDuration = `${3 + d.delay}s`;
-    el.style.animationDelay = `${-d.delay}s`;
-    container.appendChild(el);
-  });
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--page-bg);
+  color: #333333;
+  overflow-x: hidden;
+  transition: background 0.45s ease;
+}
 
-  // SVG ribbon strokes
-  const svgNS = "http://www.w3.org/2000/svg";
-  const svg = document.createElementNS(svgNS, "svg");
-  svg.setAttribute("class", "float-ribbons");
-  svg.setAttribute("viewBox", "0 0 390 844");
-  svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
-  svg.setAttribute("fill", "none");
-  const uid = containerId.replace(/-/g, "_");
-  svg.innerHTML = `
-    <path d="M-20 200 Q100 120 200 180 Q300 240 410 160" stroke="url(#r1_${uid})" stroke-width="2"/>
-    <path d="M-20 600 Q120 520 220 580 Q320 640 410 560" stroke="url(#r2_${uid})" stroke-width="1.5"/>
-    <defs>
-      <linearGradient id="r1_${uid}" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="${theme.primaryColor}"/>
-        <stop offset="100%" stop-color="${theme.secondaryColor}"/>
-      </linearGradient>
-      <linearGradient id="r2_${uid}" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="${theme.secondaryColor}"/>
-        <stop offset="100%" stop-color="${theme.goldColor}"/>
-      </linearGradient>
-    </defs>
-  `;
-  container.appendChild(svg);
+button { font-family: var(--font-body); cursor: pointer; }
+input  { font-family: var(--font-body); }
+
+/* ============================================================
+   APP SHELL
+   ============================================================ */
+#app {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  opacity: 0;
+}
+#app.app-ready {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+/* ============================================================
+   SCREENS
+   ============================================================ */
+.screen {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  will-change: opacity, transform;
+}
+
+.screen-inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reveal-inner { align-items: center; }
+
+.screen-fade-out { opacity: 0 !important; }
+
+/* ============================================================
+   FLOATING BACKGROUND ELEMENTS
+   ============================================================ */
+.floating-elements {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.float-blob {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(40px);
+  animation: blobPulse ease-in-out infinite;
+}
+
+.float-sparkle {
+  position: absolute;
+  line-height: 0;
+  animation: sparkleTwinkle ease-in-out infinite;
+  opacity: 0.55;
+}
+
+/* dots are small, no glow on light bg */
+.float-dot {
+  position: absolute;
+  border-radius: 50%;
+  animation: dotFloat ease-in-out infinite;
+  box-shadow: none !important;
+  opacity: 0.45;
+}
+
+.float-dot.intense { animation-name: dotFloatIntense; }
+
+.float-ribbons {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.07;
+}
+
+/* ---- Floating keyframes — calm, no seizure triggers ---- */
+@keyframes blobPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.6; }
+  50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 0.9; }
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% { transform: scale(0.8) rotate(0deg);   opacity: 0.35; }
+  50%       { transform: scale(1.2) rotate(15deg);  opacity: 0.7;  }
+}
+
+@keyframes dotFloat {
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes dotFloatIntense {
+  0%, 100% { transform: translate(0, 0);        }
+  40%       { transform: translate(6px, -8px);   }
+  70%       { transform: translate(-5px, -14px); }
+}
+
+/* ============================================================
+   THEME CAROUSEL
+   ============================================================ */
+.carousel-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.carousel-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  font-size: 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  transition: border-color 0.4s, color 0.4s, transform 0.15s, background 0.2s;
+}
+
+.carousel-btn:hover  { transform: scale(1.08); background: #f8f8f8; }
+.carousel-btn:active { transform: scale(0.92); }
+
+.carousel-label-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  overflow: hidden;
+  min-width: 0;
+  position: relative;
+}
+
+/* "by RelateAi" — color driven by JS */
+.by-relateai {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+  text-align: center;
+  transition: color 0.4s;
+}
+
+.by-word    { font-size: 0.6rem;  font-weight: 300; font-style: italic; }
+.relateai-word { font-size: 0.75rem; font-weight: 300; font-style: italic; }
+
+.carousel-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid;
+  background: #ffffff;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.4s, border-color 0.4s;
+}
+
+.carousel-label.fade-out { opacity: 0; transform: translateY(-6px); }
+.carousel-label.fade-in  { opacity: 0; transform: translateY(6px);  }
+
+.carousel-emoji { font-size: 0.85rem; }
+
+.carousel-text {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color 0.4s;
+}
+
+/* ============================================================
+   HEADING
+   ============================================================ */
+.heading-wrap {
+  text-align: center;
+  margin-bottom: 28px;
+  width: 100%;
+}
+
+.main-heading {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin-bottom: 10px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.heading-line1 {
+  display: block;
+  color: #222222;
+}
+
+.heading-line2 {
+  display: block;
+  color: var(--primary);
+  transition: color 0.4s;
+}
+
+.heading-sub {
+  color: #666666;
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   GLASS CARD — now a clean white card
+   ============================================================ */
+.glass-card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+  transition: background 0.4s, border-color 0.4s;
+}
+
+/* ============================================================
+   CREATE FORM
+   ============================================================ */
+.create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-label {
+  color: #444444;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.optional-tag {
+  color: #999999;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.78rem;
+}
+
+.name-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: #f8f8f8;
+  border: 1.5px solid #dddddd;
+  color: #222222;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
+  -webkit-appearance: none;
+}
+
+.name-input::placeholder { color: #aaaaaa; }
+
+/* border/shadow on filled/focused state set by JS via theme.primaryColor */
+
+/* ============================================================
+   PHOTO DROP ZONE
+   ============================================================ */
+.drop-zone {
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px dashed #cccccc;
+  background: #fafafa;
+  min-height: 110px;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.drop-zone:hover    { background: #f4f4f4; border-color: #bbbbbb; }
+.drop-zone.dragging { background: #f0f0f0; }
+.drop-zone:focus-visible { outline: 2px solid rgba(0,0,0,0.2); outline-offset: 2px; }
+
+.dz-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 28px 20px;
+}
+
+.dz-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: var(--primary);
+  transition: background 0.4s;
+}
+
+.dz-camera-icon { color: #ffffff; }
+
+.dz-text { text-align: center; }
+
+.dz-primary {
+  color: #444444;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.dz-secondary {
+  color: #888888;
+  font-size: 0.78rem;
+  margin-top: 3px;
+}
+
+.dz-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #aaaaaa;
+  font-size: 0.72rem;
+}
+
+.dz-preview {
+  display: none;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.dz-preview.visible { display: flex; }
+
+.preview-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid;
+  transition: border-color 0.4s;
+}
+
+.preview-info { flex: 1; min-width: 0; }
+
+/* preview-uploaded color set by JS via theme.primaryColor */
+.preview-uploaded {
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color 0.4s;
+}
+
+.preview-change {
+  color: #999999;
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+.preview-remove {
+  background: none;
+  border: none;
+  color: #aaaaaa;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.preview-remove:hover { color: #333333; background: rgba(0,0,0,0.06); }
+
+#file-input { display: none; }
+
+/* ============================================================
+   GENERATE BUTTON
+   ============================================================ */
+.generate-btn {
+  width: 100%;
+  padding: 19px 24px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: none;
+  color: #bbbbbb;
+  background: #eeeeee;
+  box-shadow: none;
+  transition: background 0.25s, color 0.25s, transform 0.15s;
+}
+
+.generate-btn:not(:disabled) {
+  background: var(--primary);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.generate-btn:not(:disabled):hover  { background: var(--primary-hover); transform: translateY(-2px); }
+.generate-btn:not(:disabled):active { transform: translateY(0) scale(0.98); }
+.generate-btn:disabled { cursor: not-allowed; }
+
+/* ============================================================
+   SPOTIFY INPUT
+   ============================================================ */
+.spotify-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.spotify-input-icon {
+  position: absolute;
+  left: 14px;
+  color: #1DB954;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.spotify-input {
+  width: 100%;
+  padding: 12px 16px 12px 38px;
+  border-radius: 12px;
+  border: 1.5px solid #dddddd;
+  background: #f8f8f8;
+  color: #222222;
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.spotify-input:focus {
+  border-color: rgba(29,185,84,0.7);
+  box-shadow: 0 0 0 4px rgba(29,185,84,0.12);
+}
+
+.spotify-input::placeholder { color: #aaaaaa; }
+
+/* ============================================================
+   SPOTIFY REVEAL PLAYER
+   ============================================================ */
+.spotify-player-wrap {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.spotify-player-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1DB954;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============================================================
+   TERMS CHECKBOX
+   ============================================================ */
+.terms-checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.terms-checkbox-wrap input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.terms-checkbox-text {
+  color: #888888;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  user-select: none;
+}
+
+.terms-link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.terms-link:hover { opacity: 0.8; }
+
+/* ============================================================
+   REVEAL — AVATAR GLOW (very subtle on light bg)
+   ============================================================ */
+.avatar-glow {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 220px;
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.45;
+  transition: background 0.4s;
+}
+
+/* ============================================================
+   AVATAR
+   ============================================================ */
+.avatar-wrap {
+  position: relative;
+  margin-bottom: 20px;
+  animation: avatarEntry 0.5s var(--ease-spring) 0.1s both;
+}
+
+@keyframes avatarEntry {
+  from { transform: scale(0) rotate(-12deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg);   opacity: 1; }
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--primary),
+    var(--secondary),
+    var(--primary)
+  );
+  animation: ringRotate 8s linear infinite;
+  transition: background 0.4s;
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.avatar-circle {
+  position: relative;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255,255,255,0.9);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  z-index: 1;
+  transition: background 0.4s;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* heart icon color — white is fine since circle bg is brand gradient */
+.avatar-heart {
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.emoji-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+  z-index: 2;
+  animation: badgePulse 2s ease-in-out infinite;
+  transition: background 0.4s;
+  user-select: none;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1);    }
+  50%       { transform: scale(1.12); }
+}
+
+/* ============================================================
+   REVEAL — GREETING
+   ============================================================ */
+.greeting-section {
+  text-align: center;
+  margin-bottom: 4px;
+  animation: fadeSlideUp 0.6s var(--ease-spring) 0.3s both;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.greeting-heading {
+  font-family: var(--font-display);
+  font-size: 2.3rem;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  word-break: break-word;
+}
+
+/* ============================================================
+   REVEAL — WISH CARD
+   ============================================================ */
+.wish-card {
+  width: 100%;
+  margin-top: 16px;
+  position: relative;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  animation: wishCardEntry 0.65s var(--ease-spring) 0.45s both;
+}
+
+@keyframes wishCardEntry {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)     scale(1);   }
+}
+
+.card-accent-line {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 4px;
+  border-radius: 0 0 4px 4px;
+  background: var(--primary);
+  transition: background 0.4s;
+}
+
+.card-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* emoji box bg/border set by JS */
+.card-emoji-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  border: 1px solid;
+  transition: background 0.4s, border-color 0.4s;
+  user-select: none;
+}
+
+.card-badge-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  transition: color 0.4s;
+}
+
+.wish-text {
+  color: #444444;
+  font-size: 0.97rem;
+  line-height: 1.82;
+  font-weight: 400;
+  transition: opacity 0.2s ease;
+}
+
+.card-footer-row {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* ============================================================
+   REVEAL — ACTION BUTTONS
+   ============================================================ */
+.reveal-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  animation: fadeSlideUp 0.45s var(--ease-spring) 0.7s both;
+}
+
+.btn-primary-action {
+  width: 100%;
+  padding: 15px 24px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: none;
+  color: #ffffff;
+  background: var(--primary);
+  transition: background 0.4s, transform 0.15s;
+}
+
+.btn-primary-action:hover  { background: var(--primary-hover); transform: translateY(-2px); }
+.btn-primary-action:active { transform: translateY(0) scale(0.98); }
+
+.btn-secondary-action {
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  color: #444444;
+  transition: transform 0.15s, background 0.2s, border-color 0.2s;
+}
+
+.btn-secondary-action:hover  { transform: translateY(-1px); background: #f8f8f8; border-color: #cccccc; }
+.btn-secondary-action:active { transform: scale(0.98); }
+
+.btn-ghost-action {
+  background: none;
+  border: none;
+  color: #aaaaaa;
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 4px;
+  width: 100%;
+  transition: color 0.2s;
+}
+
+.btn-ghost-action:hover { color: #555555; }
+
+/* ============================================================
+   RESPONSIVE — Tablet
+   ============================================================ */
+@media (min-width: 480px) {
+  .screen-inner      { max-width: 384px; }
+  .main-heading      { font-size: 2.2rem; }
+  .greeting-heading  { font-size: 2.5rem; }
+}
+
+/* ============================================================
+   RESPONSIVE — Small desktop
+   ============================================================ */
+@media (min-width: 768px) {
+  .screen-inner     { max-width: 420px; }
+  .main-heading     { font-size: 2.4rem; }
+  .greeting-heading { font-size: 2.7rem; }
+  .wish-text        { font-size: 1rem; }
+}
+
+/* ============================================================
+   RESPONSIVE — Desktop
+   ============================================================ */
+@media (min-width: 1024px) {
+  .screen-inner { max-width: 540px; }
+  .main-heading { font-size: 2.5rem; }
 }
 
 /* ============================================================
    CAROUSEL DOTS
    ============================================================ */
-function renderCarouselDots(activeIndex, theme) {
-  const container = document.getElementById("carousel-dots");
-  container.innerHTML = "";
-  THEMES.forEach((t, i) => {
-    const dot = document.createElement("button");
-    dot.className = "carousel-dot" + (i === activeIndex ? " active" : "");
-    dot.setAttribute("aria-label", `${t.label} theme`);
-    dot.setAttribute("role", "tab");
-    dot.setAttribute("aria-selected", String(i === activeIndex));
-    if (i === activeIndex) dot.style.background = theme.primaryColor;
-    dot.addEventListener("click", () => setTheme(i));
-    container.appendChild(dot);
-  });
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+  margin-bottom: 18px;
 }
 
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.18);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s, width 0.25s, border-radius 0.25s;
+  flex-shrink: 0;
+}
+
+/* active dot background set by JS via theme.primaryColor */
+.carousel-dot.active { width: 16px; border-radius: 3px; }
+.carousel-dot:hover:not(.active) { background: rgba(0,0,0,0.35); }
+
 /* ============================================================
-   TOAST NOTIFICATION
+   CHARACTER COUNTER
    ============================================================ */
-let _toastTimer = null;
-function showToast(message) {
-  const toast = document.getElementById("toast");
-  toast.textContent = message;
-  toast.classList.add("toast-visible");
-  if (_toastTimer) clearTimeout(_toastTimer);
-  _toastTimer = setTimeout(() => {
-    toast.classList.remove("toast-visible");
-    _toastTimer = null;
-  }, 2500);
+.char-counter {
+  display: block;
+  text-align: right;
+  font-size: 0.72rem;
+  color: #aaaaaa;
+  opacity: 0;
+  transition: opacity 0.2s;
+  margin-top: 4px;
+  min-height: 1em;
 }
 
 /* ============================================================
    DROP ZONE ERROR
    ============================================================ */
-function showDropZoneError(message) {
-  const existing = document.getElementById("dz-error");
-  if (existing) existing.remove();
-  const err = document.createElement("p");
-  err.id = "dz-error";
-  err.className = "dz-error";
-  err.textContent = message;
-  document.getElementById("dz-empty").appendChild(err);
-  setTimeout(() => { if (err.parentNode) err.remove(); }, 3500);
+.dz-error {
+  color: #cc2200;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 4px;
+  animation: fadeSlideUp 0.2s ease both;
 }
 
 /* ============================================================
-   SMALL CONFETTI — for wish regeneration
+   CARD COPY BUTTON
    ============================================================ */
-function fireSmallConfetti(theme) {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const colors = theme.confettiColors;
-  confetti({ origin: { y: 0.55 }, particleCount: 40, spread: 70, startVelocity: 30, colors, decay: 0.9 });
+.card-copy-btn {
+  margin-left: 0;
+  background: none;
+  border: none;
+  color: #cccccc;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  transition: color 0.2s, background 0.2s;
+}
+
+.card-copy-btn:hover { color: #555555; background: rgba(0,0,0,0.06); }
+
+/* ============================================================
+   TOAST NOTIFICATION
+   ============================================================ */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: #222222;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #f5f5f5;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 11px 20px;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.22s ease, transform 0.22s var(--ease-spring);
+  z-index: 1000;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+}
+
+.toast.toast-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ============================================================
-   APPLY THEME — updates all dynamic styles
+   SHARED-LINK LOADER — instant overlay while Firestore loads
    ============================================================ */
-function applyTheme(theme) {
-  // Page title + localStorage
-  document.title = `${theme.label} Wish Generator`;
-  try { localStorage.setItem("lastTheme", String(state.themeIndex)); } catch (_) {}
+html.is-shared #create-screen { opacity: 0; pointer-events: none; }
 
-  // Carousel dots
-  renderCarouselDots(state.themeIndex, theme);
+.shared-loader {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: linear-gradient(160deg, #fff8f6 0%, #fff0f8 55%, #f6f0ff 100%);
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+html.is-shared .shared-loader { display: flex; }
+.shared-loader.loader-out    { opacity: 0; pointer-events: none; }
 
-  // Page background via body class
-  document.body.className = theme.className;
-
-  // Carousel buttons
-  ["prev-btn", "next-btn"].forEach((id) => {
-    const btn = document.getElementById(id);
-    btn.style.borderColor = `${theme.primaryColor}40`;
-    btn.style.color = theme.primaryColor;
-  });
-
-  // Carousel label (fade swap)
-  updateCarouselLabel(theme);
-
-  // Heading lines
-  updateHeading(theme);
-
-  // Name input placeholder & styles
-  const nameInput = document.getElementById("name-input");
-  nameInput.placeholder = theme.namePlaceholder;
-  refreshInputBorder(nameInput, theme);
-
-  // Generate button label and state
-  document.getElementById("generate-label").textContent = theme.generateLabel;
-  refreshGenerateBtn(nameInput.value, theme);
-
-  // Drop zone preview color
-  document.getElementById("preview-uploaded").style.color = theme.primaryColor;
-  document.getElementById("preview-img").style.borderColor = `${theme.primaryColor}80`;
-
-  // Reveal screen elements
-  applyRevealTheme(theme);
-
-  // Floating elements (both screens)
-  renderFloatingElements("create-floats", theme, false);
-  renderFloatingElements("reveal-floats", theme, true);
+.loader-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  padding: 40px 32px;
 }
 
-function applyRevealTheme(theme) {
-  // Greeting heading gradient
-  document.getElementById("greeting-heading").style.backgroundImage = theme.headingGradient;
+.loader-icon {
+  font-size: 4rem;
+  animation: loaderFloat 2s ease-in-out infinite;
+  display: block;
+  filter: drop-shadow(0 8px 24px rgba(255,21,2,0.18));
+}
+@keyframes loaderFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-12px) scale(1.06); }
+}
 
-  // Avatar glow
-  document.getElementById("avatar-glow").style.background =
-    `radial-gradient(circle, ${theme.primaryGlow}, transparent 70%)`;
+.loader-heading {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0;
+  background: linear-gradient(135deg, #ff1502 0%, #ff4002 50%, #ff6d02 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-  // Avatar circle (fallback bg when no photo)
-  if (!state.photo) {
-    document.getElementById("avatar-circle").style.background = theme.buttonGradient;
+/* iOS-style radiating bars spinner */
+.l-spinner {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+.l-bar {
+  position: absolute;
+  width: 3.5px;
+  height: 12px;
+  background: linear-gradient(180deg, #ff1502, #ff6d02);
+  border-radius: 3px;
+  left: calc(50% - 1.75px);
+  top: 3px;
+  transform-origin: 1.75px 21px;
+  animation: lBarFade 1.2s linear infinite;
+}
+.l-bar:nth-child(1)  { transform: rotate(0deg);   animation-delay: -1.10s; }
+.l-bar:nth-child(2)  { transform: rotate(30deg);  animation-delay: -1.00s; }
+.l-bar:nth-child(3)  { transform: rotate(60deg);  animation-delay: -0.90s; }
+.l-bar:nth-child(4)  { transform: rotate(90deg);  animation-delay: -0.80s; }
+.l-bar:nth-child(5)  { transform: rotate(120deg); animation-delay: -0.70s; }
+.l-bar:nth-child(6)  { transform: rotate(150deg); animation-delay: -0.60s; }
+.l-bar:nth-child(7)  { transform: rotate(180deg); animation-delay: -0.50s; }
+.l-bar:nth-child(8)  { transform: rotate(210deg); animation-delay: -0.40s; }
+.l-bar:nth-child(9)  { transform: rotate(240deg); animation-delay: -0.30s; }
+.l-bar:nth-child(10) { transform: rotate(270deg); animation-delay: -0.20s; }
+.l-bar:nth-child(11) { transform: rotate(300deg); animation-delay: -0.10s; }
+.l-bar:nth-child(12) { transform: rotate(330deg); animation-delay:  0.00s; }
+@keyframes lBarFade {
+  0%   { opacity: 1; }
+  100% { opacity: 0.08; }
+}
+
+.loader-sub {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #aaaaaa;
+  margin: 0;
+  transition: opacity 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   AD SPACE — inline between wish card and Spotify player
+   ============================================================ */
+.sponsor-zone {
+  width: 100%;
+  min-height: 80px;
+  border-radius: 16px;
+  margin-top: 16px;
+  margin-bottom: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px dashed #c0b4b4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c0b4b4;
+}
+
+
+/* ============================================================
+   WISH CARD BOUNCE (on regenerate)
+   ============================================================ */
+@keyframes cardBounce {
+  0%   { transform: translateY(0)    scale(1);    }
+  35%  { transform: translateY(-5px) scale(1.02); }
+  70%  { transform: translateY(1px)  scale(0.99); }
+  100% { transform: translateY(0)    scale(1);    }
+}
+
+.wish-card.bouncing { animation: cardBounce 0.42s var(--ease-spring); }
+
+/* ============================================================
+   MOBILE — hide drag-and-drop copy on pure touch
+   ============================================================ */
+@media (hover: none) {
+  .dz-secondary { display: none; }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
-
-  // Emoji badge
-  const badge = document.getElementById("emoji-badge");
-  badge.style.background = `linear-gradient(135deg, ${theme.goldColor}, ${theme.primaryColor})`;
-  badge.textContent = theme.cardEmoji;
-
-
-
-  // Card emoji box
-  const emojiBox = document.getElementById("card-emoji-box");
-  emojiBox.style.background = `${theme.primaryColor}22`;
-  emojiBox.style.borderColor = `${theme.primaryColor}44`;
-  emojiBox.textContent = theme.cardEmoji;
-
-  // Card badge text
-  document.getElementById("card-badge-text").textContent = theme.tagBadge;
-}
-
-/* ============================================================
-   CAROUSEL LABEL — animated label swap
-   ============================================================ */
-function updateCarouselLabel(theme) {
-  const label = document.getElementById("carousel-label");
-  // Fade out
-  label.classList.add("fade-out");
-  setTimeout(() => {
-    document.getElementById("carousel-emoji").textContent = theme.emoji;
-    document.getElementById("carousel-text").textContent = theme.carouselLabel;
-    const byEl = document.getElementById("by-relateai");
-    if (byEl) byEl.style.color = theme.primaryColor;
-    document.getElementById("carousel-text").style.color = theme.primaryColor;
-    label.style.background = `${theme.primaryColor}1a`;
-    label.style.borderColor = `${theme.primaryColor}4d`;
-    // Fade in
-    label.classList.remove("fade-out");
-    label.classList.add("fade-in");
-    label.offsetHeight; // force reflow
-    label.classList.remove("fade-in");
-  }, 150);
-}
-
-/* ============================================================
-   HEADING — animated update
-   ============================================================ */
-function updateHeading(theme) {
-  const heading = document.getElementById("create-heading");
-  heading.style.transition = "opacity 0.2s ease, transform 0.2s ease";
-  heading.style.opacity = "0";
-  heading.style.transform = "translateY(12px)";
-
-  setTimeout(() => {
-    const lines = theme.heading.split("\n");
-    document.getElementById("heading-line1").textContent = lines[0] || "";
-    document.getElementById("heading-line2").textContent = lines[1] || "";
-    document.getElementById("heading-sub").textContent = theme.subtitle;
-    heading.style.opacity = "1";
-    heading.style.transform = "translateY(0)";
-  }, 200);
-}
-
-/* ============================================================
-   INPUT BORDER — dynamic color from theme
-   ============================================================ */
-function refreshInputBorder(input, theme) {
-  const hasValue = input.value.length > 0;
-  input.style.border = hasValue
-    ? `1.5px solid ${theme.primaryColor}99`
-    : "1.5px solid #dddddd";
-  input.style.boxShadow = hasValue ? `0 0 0 4px ${theme.primaryColor}22` : "none";
-}
-
-/* ============================================================
-   GENERATE BUTTON — enable / disable with visual state
-   ============================================================ */
-function refreshGenerateBtn(value, theme) {
-  const btn = document.getElementById("generate-btn");
-  const checkbox = document.getElementById("terms-checkbox");
-  btn.disabled = !(value.trim().length > 0 && checkbox && checkbox.checked);
-}
-
-/* ============================================================
-   PHOTO HANDLING
-   ============================================================ */
-function handleFile(file) {
-  if (!file) return;
-  if (!file.type.startsWith("image/")) {
-    showDropZoneError("Please upload an image file (PNG, JPG, GIF…)");
-    return;
-  }
-  if (file.size > 10 * 1024 * 1024) {
-    showDropZoneError("Image must be under 10 MB — please choose a smaller file.");
-    return;
-  }
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    state.photo = e.target.result;
-    const theme = THEMES[state.themeIndex];
-    const img = document.getElementById("preview-img");
-    img.src = state.photo;
-    img.style.borderColor = `${theme.primaryColor}80`;
-    document.getElementById("dz-empty").style.display = "none";
-    document.getElementById("dz-preview").style.display = "flex";
-  };
-  reader.readAsDataURL(file);
-}
-
-function clearPhoto() {
-  state.photo = null;
-  document.getElementById("preview-img").src = "";
-  document.getElementById("dz-preview").style.display = "none";
-  document.getElementById("dz-empty").style.display = "flex";
-  document.getElementById("file-input").value = "";
-}
-
-/* ============================================================
-   PICK WISH — random message from current theme
-   ============================================================ */
-function pickWish() {
-  const pool = THEMES[state.themeIndex].messages;
-  return pool[Math.floor(Math.random() * pool.length)];
-}
-
-/* ============================================================
-   CONFETTI — matches WishRevealScreen.tsx
-   ============================================================ */
-function fireConfetti(theme) {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const colors = theme.confettiColors;
-  function fire(ratio, opts) {
-    confetti(Object.assign({ origin: { y: 0.6 }, particleCount: Math.floor(200 * ratio), colors }, opts));
-  }
-  fire(0.25, { spread: 26,  startVelocity: 55 });
-  fire(0.2,  { spread: 60 });
-  fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
-  fire(0.1,  { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
-  fire(0.1,  { spread: 120, startVelocity: 45 });
-}
-
-/* ============================================================
-   SCREEN TRANSITIONS
-   ============================================================ */
-const EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
-const DUR = 380; // ms
-
-function transitionTo(newScreenId, setupFn) {
-  if (state.transitioning) return;
-  state.transitioning = true;
-
-  const currentId = state.screen === "create" ? "create-screen" : "reveal-screen";
-  const currentEl = document.getElementById(currentId);
-  const newEl = document.getElementById(newScreenId);
-  const exitX = state.screen === "create" ? "-24px" : "24px";
-  const enterX = newScreenId === "reveal-screen" ? "24px" : "-24px";
-
-  // Animate current screen out
-  currentEl.style.transition = `opacity ${DUR}ms ${EASE}, transform ${DUR}ms ${EASE}`;
-  currentEl.style.opacity = "0";
-  currentEl.style.transform = `translateX(${exitX})`;
-
-  setTimeout(() => {
-    // Hide old screen
-    currentEl.style.display = "none";
-    currentEl.style.transition = "none";
-    currentEl.style.opacity = "1";
-    currentEl.style.transform = "translateX(0)";
-
-    // Run any setup before showing new screen
-    if (setupFn) setupFn();
-
-    // Prepare new screen (off-screen, invisible)
-    newEl.style.display = "flex";
-    newEl.style.transition = "none";
-    newEl.style.opacity = "0";
-    newEl.style.transform = `translateX(${enterX})`;
-    newEl.offsetHeight; // force reflow so transition fires
-
-    // Animate new screen in
-    newEl.style.transition = `opacity ${DUR}ms ${EASE}, transform ${DUR}ms ${EASE}`;
-    newEl.style.opacity = "1";
-    newEl.style.transform = "translateX(0)";
-
-    state.screen = newScreenId === "reveal-screen" ? "reveal" : "create";
-    state.transitioning = false;
-  }, DUR + 20);
-}
-
-/* ============================================================
-   SHOW REVEAL SCREEN
-   ============================================================ */
-function showReveal(name, photo, wish) {
-  const theme = THEMES[state.themeIndex];
-
-  transitionTo("reveal-screen", () => {
-    state.name = name;
-    state.photo = photo;
-    state.wish = wish;
-
-    // Greeting text
-    const greetingEl = document.getElementById("greeting-heading");
-    greetingEl.textContent = theme.revealGreeting(name);
-    greetingEl.style.backgroundImage = theme.headingGradient;
-
-    // Wish text
-    document.getElementById("wish-text").textContent = wish;
-
-    // Avatar photo or heart icon
-    const avatarImg = document.getElementById("avatar-img");
-    const avatarHeart = document.getElementById("avatar-heart");
-    const avatarCircle = document.getElementById("avatar-circle");
-
-    if (photo) {
-      avatarImg.src = photo;
-      avatarImg.alt = `${name}'s photo`;
-      avatarImg.style.display = "block";
-      avatarHeart.style.display = "none";
-      avatarCircle.style.background = "transparent";
-    } else {
-      avatarImg.style.display = "none";
-      avatarHeart.style.display = "flex";
-      avatarCircle.style.background = theme.buttonGradient;
-    }
-
-    // Spotify player
-    const playerWrap = document.getElementById("spotify-player-wrap");
-    const playerContainer = document.getElementById("spotify-player-container");
-    if (state.spotifyTrackId) {
-      playerContainer.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${state.spotifyTrackId}" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
-      playerWrap.style.display = "block";
-    } else {
-      playerContainer.innerHTML = "";
-      playerWrap.style.display = "none";
-    }
-
-    // Reset reveal animations so they re-run
-    resetRevealAnimations();
-
-    // Confetti after short delay
-    setTimeout(() => fireConfetti(theme), 350);
-  });
-}
-
-/* ============================================================
-   SHOW CREATE SCREEN
-   ============================================================ */
-function showCreate() {
-  transitionTo("create-screen", () => {
-    // Reset form state
-    const theme = THEMES[state.themeIndex];
-    const nameInput = document.getElementById("name-input");
-    nameInput.value = "";
-    const tc = document.getElementById("terms-checkbox");
-    if (tc) tc.checked = false;
-    document.getElementById("spotify-input").value = "";
-    state.spotifyTrackId = null;
-    clearPhoto();
-    refreshGenerateBtn("", theme);
-    refreshInputBorder(nameInput, theme);
-
-    // Restore generate button icon + label in case loading state was applied
-    const genBtn = document.getElementById("generate-btn");
-    const genIcon = genBtn.querySelector("i");
-    genIcon.className = "fa-solid fa-wand-magic-sparkles";
-    document.getElementById("generate-label").textContent = theme.generateLabel;
-
-    // Reset char counter
-    const counter = document.getElementById("char-counter");
-    counter.textContent = "";
-    counter.style.opacity = "0";
-
-    state.name = "";
-    state.photo = null;
-    state.wish = "";
-  });
-}
-
-/* ============================================================
-   RESET REVEAL ANIMATIONS — force CSS animations to replay
-   when navigating create → reveal multiple times
-   ============================================================ */
-function resetRevealAnimations() {
-  const ids = ["avatar-wrap", "greeting-section", "wish-card", "ad-placeholder", "reveal-actions"];
-  ids.forEach((id) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.style.animation = "none";
-    el.offsetHeight; // trigger reflow
-    el.style.animation = "";
-  });
-}
-
-/* ============================================================
-   SHARE FUNCTIONALITY — matches WishRevealScreen.tsx
-   ============================================================ */
-async function handleShare() {
-  const theme = THEMES[state.themeIndex];
-  const greeting = theme.revealGreeting(state.name);
-  const text =
-    `✉️ Your friend sent you a special ${theme.label} greeting!\n\n` +
-    `🎉 ${greeting}\n\n${state.wish}\n\n👉 Create your own free greeting at ${theme.label} Wish Generator`;
-
-  try {
-    if (navigator.share) {
-      await navigator.share({ title: greeting, text });
-      return;
-    }
-  } catch (_) {
-    // User cancelled or share not permitted — fall through to clipboard
-  }
-
-  try {
-    await navigator.clipboard.writeText(text);
-    showToast("✓ Copied! Paste anywhere to share.");
-  } catch (_) {
-    showToast("Couldn't copy — try selecting the text manually.");
-  }
-}
-
-/* ============================================================
-   THEME CHANGE
-   ============================================================ */
-function setTheme(index) {
-  state.themeIndex = index;
-  applyTheme(THEMES[index]);
-}
-
-/* ============================================================
-   EVENT LISTENERS & INIT
-   ============================================================ */
-function init() {
-  // Restore last-used theme from localStorage
-  try {
-    const saved = parseInt(localStorage.getItem("lastTheme") || "0", 10);
-    if (!isNaN(saved) && saved >= 0 && saved < THEMES.length) {
-      state.themeIndex = saved;
-    }
-  } catch (_) {}
-
-  // Apply initial theme
-  applyTheme(THEMES[state.themeIndex]);
-
-  // ---- Carousel ----
-  document.getElementById("prev-btn").addEventListener("click", () => {
-    setTheme((state.themeIndex - 1 + THEMES.length) % THEMES.length);
-  });
-  document.getElementById("next-btn").addEventListener("click", () => {
-    setTheme((state.themeIndex + 1) % THEMES.length);
-  });
-
-  // ---- Terms Checkbox ----
-  const termsCheckbox = document.getElementById("terms-checkbox");
-  termsCheckbox.addEventListener("change", () => {
-    refreshGenerateBtn(document.getElementById("name-input").value, THEMES[state.themeIndex]);
-  });
-
-  // ---- Name Input ----
-  const nameInput = document.getElementById("name-input");
-
-  nameInput.addEventListener("input", () => {
-    const theme = THEMES[state.themeIndex];
-    refreshGenerateBtn(nameInput.value, theme);
-    refreshInputBorder(nameInput, theme);
-    // Live character counter — appears after 20 chars
-    const len = nameInput.value.length;
-    const counter = document.getElementById("char-counter");
-    if (len >= 20) {
-      counter.textContent = `${len} / 40`;
-      counter.style.opacity = "1";
-    } else {
-      counter.style.opacity = "0";
-    }
-  });
-
-  nameInput.addEventListener("focus", () => {
-    const theme = THEMES[state.themeIndex];
-    nameInput.style.border = `1.5px solid ${theme.primaryColor}cc`;
-    nameInput.style.boxShadow = `0 0 0 4px ${theme.primaryColor}22`;
-  });
-
-  nameInput.addEventListener("blur", () => {
-    refreshInputBorder(nameInput, THEMES[state.themeIndex]);
-  });
-
-  // Submit on Enter key (name field)
-  nameInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      document.getElementById("create-form").requestSubmit();
-    }
-  });
-
-  // ---- Photo / Drop Zone ----
-  const dropZone = document.getElementById("drop-zone");
-  const fileInput = document.getElementById("file-input");
-
-  dropZone.addEventListener("click", () => fileInput.click());
-
-  dropZone.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      fileInput.click();
-    }
-  });
-
-  dropZone.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    const theme = THEMES[state.themeIndex];
-    dropZone.style.borderColor = `${theme.primaryColor}cc`;
-    dropZone.style.background = `${theme.primaryColor}14`;
-    dropZone.classList.add("dragging");
-  });
-
-  dropZone.addEventListener("dragleave", () => {
-    dropZone.style.borderColor = "#cccccc";
-    dropZone.style.background = "#fafafa";
-    dropZone.classList.remove("dragging");
-  });
-
-  dropZone.addEventListener("drop", (e) => {
-    e.preventDefault();
-    dropZone.style.borderColor = "#cccccc";
-    dropZone.style.background = "#fafafa";
-    dropZone.classList.remove("dragging");
-    handleFile(e.dataTransfer.files[0]);
-  });
-
-  fileInput.addEventListener("change", () => {
-    handleFile(fileInput.files[0]);
-    fileInput.value = ""; // allow re-uploading the same file
-  });
-
-  document.getElementById("preview-remove").addEventListener("click", (e) => {
-    e.stopPropagation();
-    clearPhoto();
-  });
-
-  // ---- Form Submit ----
-  document.getElementById("create-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const name = nameInput.value.trim();
-    if (!name) return;
-
-    // Loading state on the button
-    const genBtn = document.getElementById("generate-btn");
-    const genIcon = genBtn.querySelector("i");
-    const genLabel = document.getElementById("generate-label");
-    genBtn.disabled = true;
-    genIcon.className = "fa-solid fa-spinner fa-spin";
-    genLabel.textContent = "Generating…";
-
-    const spotifyInput = document.getElementById("spotify-input");
-    state.spotifyTrackId = extractTrackId(spotifyInput.value.trim()) || null;
-
-    showReveal(name, state.photo, pickWish());
-  });
-
-  // ---- Reveal Buttons ----
-  document.getElementById("new-wish-btn").addEventListener("click", () => {
-    const newWish = pickWish();
-    state.wish = newWish;
-
-    // Animate wish text swap
-    const wishText = document.getElementById("wish-text");
-    wishText.style.transition = "opacity 0.18s ease";
-    wishText.style.opacity = "0";
-    setTimeout(() => {
-      wishText.textContent = newWish;
-      wishText.style.opacity = "1";
-    }, 180);
-
-    // Card bounce + small confetti celebration
-    const wishCard = document.getElementById("wish-card");
-    wishCard.classList.remove("bouncing");
-    wishCard.offsetHeight;
-    wishCard.classList.add("bouncing");
-    setTimeout(() => wishCard.classList.remove("bouncing"), 450);
-    fireSmallConfetti(THEMES[state.themeIndex]);
-  });
-
-  document.getElementById("share-btn").addEventListener("click", handleShare);
-
-  document.getElementById("reset-btn").addEventListener("click", showCreate);
-
-  // ---- Card Copy Button ----
-  document.getElementById("card-copy-btn").addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(state.wish);
-      showToast("✓ Wish copied!");
-    } catch (_) {
-      showToast("Couldn't copy — try selecting the text manually.");
-    }
-  });
-
-  // ---- Keyboard: arrow keys cycle themes on create screen ----
-  document.addEventListener("keydown", (e) => {
-    if (state.screen !== "create") return;
-    if (document.activeElement === nameInput) return;
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      setTheme((state.themeIndex - 1 + THEMES.length) % THEMES.length);
-    } else if (e.key === "ArrowRight") {
-      e.preventDefault();
-      setTheme((state.themeIndex + 1) % THEMES.length);
-    }
-  });
-
-  // ---- Touch swipe: cycle themes on create screen ----
-  let _touchStartX = 0;
-  document.addEventListener("touchstart", (e) => {
-    if (state.screen !== "create") return;
-    _touchStartX = e.changedTouches[0].clientX;
-  }, { passive: true });
-  document.addEventListener("touchend", (e) => {
-    if (state.screen !== "create") return;
-    if (e.target.closest("input, .drop-zone, button")) return;
-    const dx = e.changedTouches[0].clientX - _touchStartX;
-    if (Math.abs(dx) > 50) {
-      setTheme((state.themeIndex + (dx < 0 ? 1 : -1) + THEMES.length) % THEMES.length);
-    }
-  }, { passive: true });
-}
-
-/* ============================================================
-   BOOT
-   ============================================================ */
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init);
-} else {
-  init();
 }
